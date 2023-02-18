@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cadastro de Usuários{% endblock %}
+{% block body %}
+<h1>Cadastro de Usuários</h1>
+<form>
+    <div>
+        <label>Nome Completo:</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div>
+        <label>Como deseja ser chamado?:</label>
+        <input type="text" name="opcional_name" id="opcional_name">
+    </div>
+    <div>
+        <label>E-mail:</label>
+        <input type="text" name="mail" id="mail">
+    </div>
+    <div>
+        <label>Contato:</label>
+        <input type="tel" name="tel" id="tel">
+    </div>
+    <div>
+        <label>Senha:</label>
+        <input type="password" name="password" id="password">
+    </div>
+    <div>
+        <input type="submit" value="Enviar">
+    </div>
+</form>
+{% endblock %}
