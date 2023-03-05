@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}Página Inicial{% endblock %}
+</head>
+{% block body %}
+<body>
+    <form>
+        <div class="mb-3">
+            <label for="end_inicial" class="form-label">Endereço de Origem:</label>
+            <input type="text" class="form-control" id="end_inicial" aria-describedby="textHelp" style="width: 400px;" required>
+        </div>
+        <hr>
+        <div class="mb-3">
+            <label for="end_final" class="form-label">Endereço de Destino:</label>
+            <input type="text" class="form-control" id="end_final" aria-describedby="textHelp" style="width: 400px;" required>
+        </div>
+        <div>
+            <button type="submit" id="buscar" class="btn btn-primary" style="margin: 10px;">Buscar</button>
+        </div>
+    </form>
+</body>
+{% endblock %}
+</html>

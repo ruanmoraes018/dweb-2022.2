@@ -5,28 +5,73 @@
 {% block body %}
 <h1>Cadastro de Usuários</h1>
 <form>
-    <div>
-        <label>Nome Completo:</label>
-        <input type="text" name="name" id="name">
+    <div class="mb-3">
+        <label for="exampleInputText1" class="form-label">Nome Completo:</label>
+        <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" style="width: 400px;" required>
     </div>
-    <div>
-        <label>Como deseja ser chamado?:</label>
-        <input type="text" name="opcional_name" id="opcional_name">
+    <hr>
+
+    <div class="mb-3">
+        <label for="exampleInputText2" class="form-label">Como deseja ser chamado:</label>
+        <input type="text" class="form-control" id="exampleInputText2" aria-describedby="textHelp" style="width: 400px;" required>
     </div>
-    <div>
-        <label>E-mail:</label>
-        <input type="text" name="mail" id="mail">
+    <hr>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">E-mail:</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="width: 400px;" required>
     </div>
-    <div>
-        <label>Contato:</label>
-        <input type="tel" name="tel" id="tel">
+    <hr>
+
+    <div class="mb-3">
+        <label for="telefone">Contato:</label>
+        <input type="text" class="form-control" id="telefone" name="telefone" data-inputmask="'mask': '(99) 99999-9999'" style="width: 200px;" required pattern="\d+">
     </div>
-    <div>
-        <label>Senha:</label>
-        <input type="password" name="password" id="password">
-    </div>
-    <div>
-        <input type="submit" value="Enviar">
+    <hr>
+
+    <div class="mb-3">
+        <div class="col-auto">
+            <label for="password" class="col-form-label">Senha:</label>
+        </div>
+        <div class="col-auto">
+            <input type="password" class="form-control" id="password" aria-describedby="passwordHelpInline" style="width: 200px;" required>
+        </div>
+        <div class="col-auto">
+            <span id="passwordHelpInline" class="form-text">
+                Deve ter 8-20 caracteres.
+            </span>
+        </div>
+        <hr>
+        <div>
+            <label for="confirmarSenha">Confirmar senha:</label>
+                <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" style="width: 200px;" required pattern=".{8,20}" title="Insira a mesma senha.">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" onclick="return validarSenha()" style="margin: 10px;">Cadastrar</button>
+        </div>
+        <script>
+            function validarSenha() {
+                var senha = document.getElementById("password").value;
+                var confirmarSenha = document.getElementById("confirmarSenha").value;
+                if (senha != confirmarSenha) {
+                    alert("As senhas não coincidem!");
+                    return false;
+                }
+                    return true;
+            }
+            function validarTelefone() {
+                var telefone = document.getElementById("telefone").value;
+                if (telefone === "") {
+                    alert("Por favor, informe o número de telefone.");
+                    return false;
+                } else if (telefone.length < 15) {
+                    alert("O número de telefone informado é inválido.");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        </script>
     </div>
 </form>
 {% endblock %}

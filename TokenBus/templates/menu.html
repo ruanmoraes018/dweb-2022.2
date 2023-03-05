@@ -1,13 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block title %}Menu{% endblock %}
 {% block menu %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="http://127.0.0.1:8000/">TokenBus</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="pesquisa">Rotas</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Pesquisar Rotas" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </ul>
+            <ul class="navbar-nav me-right mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cadastro">Cadastro</a>
+                </li>
+            </ul>
+        </div>
+  </div>
+</nav>
+
 <ul>
   <li>Conta:</li>
   <li> <a href="cadastro">Cadastro</a></li>
-  <li><a href="login">Login</a></li>
-  <li><a href="buscador">Buscar Rotas</a></li>
+  <li> <a href="login">Login</a></li>
+  <li> <a href="pesquisa">Pesquisar Rotas</a></li>
 
 </ul>
 {% endblock %}

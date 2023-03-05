@@ -12,5 +12,5 @@ urlpatterns = [
     path("menu", views.menu),
     path("cadastro", views.cadastro),
     path("login", views.login),
-    path("buscador", views.buscador)
+    path("pesquisa", views.pesquisa)
 ]

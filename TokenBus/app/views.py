@@ -26,7 +26,7 @@ def menu(request):
     return render(request, 'menu.html')
 
 
-def buscador(request):
-    return render(request, 'buscador.html')
+def pesquisa(request):
+    return render(request, 'pesquisa.html')
 
 
