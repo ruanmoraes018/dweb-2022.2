@@ -5,11 +5,6 @@ from django.shortcuts import render
 
 
 # Create your views here.
-def start(request):
-    return render(request, 'test.html')
-    # HttpResponse("Meu primeiro response html em django")
-
-
 def login(request):
     return render(request, 'login.html')
 
