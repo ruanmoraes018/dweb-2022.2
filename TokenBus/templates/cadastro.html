@@ -4,37 +4,37 @@
 {% block title %}Cadastro de Usuários{% endblock %}
 {% block body %}
 <h1>Cadastro de Usuários</h1>
-<form>
+<form id="cadastro">
     <div class="mb-3">
         <label for="exampleInputText1" class="form-label">Nome Completo:</label>
-        <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" style="width: 400px;" required>
+        <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" required>
     </div>
     <hr>
 
     <div class="mb-3">
-        <label for="exampleInputText2" class="form-label">Como deseja ser chamado:</label>
-        <input type="text" class="form-control" id="exampleInputText2" aria-describedby="textHelp" style="width: 400px;" required>
+        <label for="inputName" class="form-label">Como deseja ser chamado:</label>
+        <input type="text" class="form-control" id="inputName" aria-describedby="textHelp" required>
     </div>
     <hr>
 
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">E-mail:</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="width: 400px;" required>
+        <label for="inputEmail" class="form-label">E-mail:</label>
+        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" required>
     </div>
     <hr>
 
-    <div class="mb-3">
-        <label for="telefone">Contato:</label>
-        <input type="text" class="form-control" id="telefone" name="telefone" data-inputmask="'mask': '(99) 99999-9999'" style="width: 200px;" required pattern="\d+">
+    <div class="mb-3" id="tel">
+        <label for="inputTelefone">Contato:</label>
+        <input type="text" class="form-control" id="inputTelefone" name="telefone" data-inputmask="'mask': '(99) 99999-9999'" required pattern="\d+">
     </div>
     <hr>
 
-    <div class="mb-3">
+    <div class="mb-3" id="pass">
         <div class="col-auto">
-            <label for="password" class="col-form-label">Senha:</label>
+            <label for="inputPassword" class="col-form-label">Senha:</label>
         </div>
         <div class="col-auto">
-            <input type="password" class="form-control" id="password" aria-describedby="passwordHelpInline" style="width: 200px;" required>
+            <input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelpInline" required>
         </div>
         <div class="col-auto">
             <span id="passwordHelpInline" class="form-text">
@@ -43,16 +43,16 @@
         </div>
         <hr>
         <div>
-            <label for="confirmarSenha">Confirmar senha:</label>
-                <input type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" style="width: 200px;" required pattern=".{8,20}" title="Insira a mesma senha.">
+            <label for="inputConfirmarSenha">Confirmar senha:</label>
+                <input type="password" class="form-control" id="inputConfirmarSenha" name="confirmarSenha" required pattern=".{8,20}" title="Insira a mesma senha.">
         </div>
         <div>
             <button type="submit" class="btn btn-primary" onclick="return validarSenha()" style="margin: 10px;">Cadastrar</button>
         </div>
         <script>
             function validarSenha() {
-                var senha = document.getElementById("password").value;
-                var confirmarSenha = document.getElementById("confirmarSenha").value;
+                var senha = document.getElementById("inputPassword").value;
+                var confirmarSenha = document.getElementById("inputConfirmarSenha").value;
                 if (senha != confirmarSenha) {
                     alert("As senhas não coincidem!");
                     return false;
@@ -60,7 +60,7 @@
                     return true;
             }
             function validarTelefone() {
-                var telefone = document.getElementById("telefone").value;
+                var telefone = document.getElementById("inputTelefone").value;
                 if (telefone === "") {
                     alert("Por favor, informe o número de telefone.");
                     return false;

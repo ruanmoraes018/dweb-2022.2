@@ -18,3 +18,45 @@ h1 {
 body {
     background-color: #00CED1;
 }
+
+form#buscador input {
+    width: 400px;
+}
+
+form#buscador button {
+    position: absolute;
+    top: auto;
+    left: 328px;
+}
+
+form#cadastro input {
+    width: 400px;
+}
+
+div#tel input {
+    width: 200px;
+}
+
+div#pass input {
+    width: 200px;
+}
+
+form#cadastro button {
+    position: absolute;
+    top: auto;
+    left: 300px;
+}
+
+div#inputEmail input {
+    width: 400px;
+}
+
+div#inputPass input {
+    width: 200px;
+}
+
+form#login button {
+    position: absolute;
+    top: auto;
+    left: 320px;
+}
