@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+import os
 
 # from django.http import HttpResponse
 
@@ -23,5 +24,4 @@ def menu(request):
 
 def pesquisa(request):
     return render(request, 'pesquisa.html')
-
 
