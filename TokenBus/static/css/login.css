@@ -15,14 +15,12 @@
     left: 48%;
     border-radius: 15px;
 }
-
-/*Área do quadrado do login*/
 .caixa-formulario-login {
     position: absolute;
-    top: 50%; /* Define a posição vertical da caixa no meio da página */
-    left: 50%; /* Define a posição horizontal da caixa no meio da página */
-    transform: translate(-50%, -50%); /* Move a caixa para o centro da página */
-    border: 1px solid #ccc;  /* Adiciona uma borda cinza ao redor da caixa */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
     padding: 30px;
     background-color: #f7f7f7;
     width: 600px;
@@ -31,27 +29,18 @@
     font-family: Roboto;
     border-radius: 15px;
 }
-
-
-
 div#tel input {
     width: 200px;
 }
-
 div#pass input {
     width: 200px;
 }
-
-
-
 div#inputEmail input {
     width: 400px;
 }
-
 div#inputPass input {
     width: 200px;
 }
-
 form#login button {
     position: absolute;
     top: auto;
