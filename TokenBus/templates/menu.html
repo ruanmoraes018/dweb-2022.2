@@ -2,59 +2,58 @@
 {% load static %}
 {% block title %}Menu{% endblock %}
 {% block menu %}
-
-<div id="navbar">
-    <div class="container">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light">
-            <a class="navbar-brand" href="http://127.0.0.1:8000/">
-                <img src="{% static 'img/TokenTravel Logo 1.png' %}" class="img-fluid" alt="Logo" id="logobar">
-            </a>
-            <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="text" placeholder="Cidade de origem" name="origem" required>
-                <input class="form-control me-2" type="text" placeholder="Cidade de destino" name="destino" required>
-                <input class="form-control me-2" type="date" name="data" required>
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Portfólio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cadastro">Cadastrar</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</div>
-
-
-{% if exibir_h3 %}
-    {% block h3 %}
-        <div class="container" id="fraseunica" >
-            Seja bem-vindo ao TokenTravel <br>
-            Faça login ou cadastre-se para acessar as funcionalidades <br>
-            do seu guia de viagens!<br>
+    <div id="navbar">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light">
+                <a class="navbar-brand" href="http://127.0.0.1:8000/">
+                    <img src="{% static 'img/TokenTravel Logo 1.png' %}" class="img-fluid" alt="Logo" id="logobar">
+                </a>
+                <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="text" placeholder="Cidade de origem" name="origem" required>
+                    <input class="form-control me-2" type="text" placeholder="Cidade de destino" name="destino" required>
+                    <input class="form-control me-2" type="date" name="data" required>
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Portfólio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cadastro">Cadastrar</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-    {% endblock %}
-{% endif %}
-
+    </div>
+    {% if exibir_h3 %}
+        {% block h3 %}
+            <a href="http://127.0.0.1:8000/">
+                <img src="{% static 'img/Seta Esquerda.png' %}" alt="">
+            </a>
+            <div class="container" id="fraseunica" >
+                Seja bem-vindo ao TokenTravel <br>
+                Faça login ou cadastre-se para acessar as funcionalidades <br>
+                do seu guia de viagens!<br>
+            </div>
+        {% endblock %}
+    {% endif %}
 {% endblock %}
 
 
