@@ -14,12 +14,14 @@ def cadastro(request):
     return render(request, 'cadastro.html')
 
 
+
 def homepage(request):
     return render(request, 'home.html')
 
 
 def menu(request):
-    return render(request, 'menu.html')
+    exibir_h3 = True  # Ou False, dependendo do que você deseja
+    return render(request, 'menu.html', {'exibir_h3': exibir_h3})
 
 
 def pesquisa(request):

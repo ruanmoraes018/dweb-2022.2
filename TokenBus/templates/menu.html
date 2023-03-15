@@ -3,51 +3,58 @@
 {% block title %}Menu{% endblock %}
 {% block menu %}
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="http://127.0.0.1:8000/">TokenBus</a>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="pesquisa">Rotas</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<div id="navbar">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light">
+            <a class="navbar-brand" href="http://127.0.0.1:8000/">
+                <img src="{% static 'img/TokenTravel Logo 1.png' %}" class="img-fluid" alt="Logo" id="logobar">
+            </a>
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="text" placeholder="Cidade de origem" name="origem" required>
+                <input class="form-control me-2" type="text" placeholder="Cidade de destino" name="destino" required>
+                <input class="form-control me-2" type="date" name="data" required>
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfólio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cadastro">Cadastrar</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
 
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Pesquisar Rotas" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
-            </ul>
-            <ul class="navbar-nav me-right mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="login">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="cadastro">Cadastro</a>
-                </li>
-            </ul>
+
+{% if exibir_h3 %}
+    {% block h3 %}
+        <div class="container" id="fraseunica" >
+            Seja bem-vindo ao TokenTravel <br>
+            Faça login ou cadastre-se para acessar as funcionalidades <br>
+            do seu guia de viagens!<br>
         </div>
-  </div>
-</nav>
+    {% endblock %}
+{% endif %}
 
-<ul>
-  <li>Conta:</li>
-  <li> <a href="cadastro">Cadastro</a></li>
-  <li> <a href="login">Login</a></li>
-  <li> <a href="pesquisa">Pesquisar Rotas</a></li>
-
-</ul>
 {% endblock %}
-{% block footer %}
-<ul>
-  <li>Pesquisa de rotas</li>
-  <a href="http://127.0.0.1:8000/"><li>Voltar a pagina anterior</li></a>
-</ul>
-{% endblock %}
-
 
 

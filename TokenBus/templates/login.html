@@ -1,34 +1,36 @@
-{% extends 'base.html' %}
+{% extends 'menu.html' %}
 {% load static %}
 
+
 {% block title %}Login{% endblock %}
+override
+{% block h3 %}{% endblock %}
 {% block body %}
-    <h1>Login</h1>
-    <form id="login">
-        <div class="mb-3" id="inputEmail">
-            <label for="exampleInputEmail1" class="form-label">Entre com seu E-mail:</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelpInLine" class="form-text">
-                Suas credenciais jamais serão divulgadas.
-            </div>
-        </div>
-        <div class="mb-3" id="inputPass">
+    <div class="caixa-formulario-login">
+        <h2>Login</h2>
+        <form class="row gy-2 gx-3 align-items-center">
             <div class="col-auto">
-                <label for="inputPassword6" class="col-form-label">Senha:</label>
+                <label class="form-label" for="login-email">Email:</label>
+                <input type="email" class="form-control" id="login-email" placeholder="Ex.: joaoribeiro@gmail.com">
             </div>
             <div class="col-auto">
-                <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                <label class="form-label" for="login-password">Senha:</label>
+                <div class="input-group">
+                    <div class="input-group-text"></div>
+                        <input type="text" class="form-control" id="login-password" placeholder="********" required pattern=".{8,}">
+                    </div>
             </div>
             <div class="col-auto">
-                <span id="passwordHelpInline" class="form-text">
-                    Deve ter 8-20 caracteres.
-                </span>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                    <label class="form-check-label" for="autoSizingCheck">
+                        Lembrar-se de mim.
+                    </label>
+                </div>
             </div>
-        </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Verificar</label>
-        </div>
-        <button type="submit" class="btn btn-primary" style="margin: 10px">Enviar</button>
-    </form>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary botao-login">Entrar</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

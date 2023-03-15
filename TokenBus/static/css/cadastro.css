@@ -1,0 +1,51 @@
+/*Área do quadrado do cadastro*/
+.caixa-formulario-cadastro {
+    margin-top: 70px;
+    position: absolute;
+    top: 70%; /* Define a posição vertical da caixa no meio da página */
+    left: 50%; /* Define a posição horizontal da caixa no meio da página */
+    transform: translate(-50%, -50%); /* Centraliza a caixa */
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f7f7f7;
+    width: 900px;
+    height: 775px;
+    color: #040c21;
+    font-family: Roboto;
+    border-radius: 15px;
+}
+.botao-cadastro {
+    transform: translateX(-50%);
+    font-family: Roboto;
+    font-size: 25px;
+    font-weight: bold;
+    color: #040c21;
+    text-decoration: none;
+    padding: 10px 25px;
+    background: white;
+    position: absolute;
+    top: 75%;
+    left: 60%;
+    border-radius: 15px;
+}
+.texto h2 {
+    color: #040c21;
+    font-family: Roboto;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.cadastro-botao-confirmar {
+    position: absolute;
+    top: 92%;
+    left: 85%;
+}
+.cadastro-fonte {
+    font-family: Roboto;
+}
+.cadastro-informativo {
+    color: #c2182b;
+}

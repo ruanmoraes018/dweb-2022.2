@@ -4,16 +4,11 @@
 <html lang="pt-BR">
     {% block title %}Página Inicial{% endblock %}
 {% block body %}
-<body>
-    <h1>TokenBus</h1>
-    <img src="{% static 'img/onibus.png'%}" alt="Logo">
-
-    <ul>
-        <li> <a href="menu">Menu</a></li>
-    </ul>
-    <p>
-        Hello Word, Carai!
-    </p>
-</body>
+    <section class="banner">
+        <div class="container">
+            <h2>Amplie seu alcance com <br>TokenTravel</h2>
+            <a href="menu" class="botao">Clique aqui!</a>
+        </div>
+    </section>
 {% endblock %}
 </html>
