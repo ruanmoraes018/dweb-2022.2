@@ -11,6 +11,9 @@ def login(request):
     return render(request, 'login.html')
 
 
+def portfolio(request):
+    return render(request, 'portfolio.html')
+
 
 def cadastro(request):
     return render(request, 'cadastro.html')
