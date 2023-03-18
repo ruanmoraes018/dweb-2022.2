@@ -1,0 +1,32 @@
+#itens {
+    line-height: 30px;
+}
+#barra-portfolio {
+    width: 300px;
+}
+.dropdown {
+    position: fixed;
+    top: 10%;
+    width: 10%;
+    font-family: Roboto;
+
+}
+.card-text {
+    text-align: justify;
+}
+.lead mb-4 {
+    text-align: justify;
+}
+
+#portfolio01 {
+    width: 100vh;
+    height: 75vh;
+    position: absolute;
+    top: 20%;
+    left: 25%;
+
+}
+
+#sobre-a-empresa {
+    margin-bottom: 700px;
+}

@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 import os
 
+
 # from django.http import HttpResponse
 
 
@@ -10,9 +11,9 @@ def login(request):
     return render(request, 'login.html')
 
 
+
 def cadastro(request):
     return render(request, 'cadastro.html')
-
 
 
 def home(request):
@@ -26,4 +27,3 @@ def menu(request):
 
 def pesquisa(request):
     return render(request, 'pesquisa.html')
-
