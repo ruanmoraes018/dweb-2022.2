@@ -14,6 +14,22 @@
     font-family: Roboto;
     border-radius: 15px;
 }
+/*Área do quadrado do cadastro de motoristas*/
+.caixa-formulario-cadastro-motorista {
+    margin-top: 180px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f7f7f7;
+    width: 900px;
+    height: 960px;
+    color: #040c21;
+    font-family: Roboto;
+    border-radius: 15px;
+}
 .botao-cadastro {
     transform: translateX(-50%);
     font-family: Roboto;
@@ -40,7 +56,7 @@
 }
 .cadastro-botao-confirmar {
     position: absolute;
-    top: 92%;
+    top: 94.5%;
     left: 85%;
 }
 .cadastro-fonte {

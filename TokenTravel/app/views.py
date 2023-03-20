@@ -16,7 +16,11 @@ def portfolio(request):
 
 
 def cadastro(request):
-    return render(request, 'cadastro.html')
+    return render(request, 'cadastro-usuarios.html')
+
+
+def motorista(request):
+    return render(request, 'cadastro-motoristas.html')
 
 
 def home(request):

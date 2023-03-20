@@ -1,12 +1,12 @@
 {% extends 'menu.html' %}
 {% load static %}
 
-{% block title %}Cadastro de Usuários{% endblock %}
+{% block title %}Cadastro de Motoristas{% endblock %}
 {% block body %}
 {% block h3 %}{% endblock %}
     <div class="container">
-        <div class="caixa-formulario-cadastro">
-            <h2 class="texto">Cadastro de Usuários</h2>
+        <div class="caixa-formulario-cadastro-motorista">
+            <h2 class="texto">Cadastro de Motoristas</h2>
             <form class="row g-3" id="cadastro-formulario">
                 <span class="form-text cadastro-informativo">
                     *: Obrigatório.
@@ -49,7 +49,7 @@
                             *
                         </span>
                     </label>
-                    <input type="email" class="form-control" id="cadastro-email" placeholder="caetano.sam@gmail.com" required>
+                    <input type="email" class="form-control" id="cadastro-email" placeholder="Ex.: caetano.sam@gmail.com" required>
                 </div>
                 <div class="col-md-6">
                     <label for="cadastro-logradouro" class="form-label">
@@ -117,7 +117,7 @@
                             *
                         </span>
                     </label>
-                    <input type="password" class="form-control" id="cadastro-senha" required>
+                    <input type="password" class="form-control" id="cadastro-senha" required pattern=".{8,20}">
                     <div class="col-auto">
                         <span class="form-text">
                             Deve ter 8–20 caracteres.
@@ -131,21 +131,22 @@
                             *
                         </span>
                     </label>
-                    <input type="password" class="form-control" id="cadastro-confirmar-senha" name="confirmarSenha" required pattern=".{8,20}" title="Insira a mesma senha.">
+                    <input type="password" class="form-control" id="cadastro-confirmar-senha" name="confirmarSenha" required pattern=".{8,20}" title="As senhas não conferem.">
                 </div>
                 <div class="col-12">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="gridCheck" required>
                         <label class="form-check-label" for="gridCheck">
-                            Lembrar-se de mim.
+                            DECLARO, sob as penas da lei, que assumo integral responsabilidade pela realização da viagem
+                            acima descrita como transporte próprio e estou ciente que a falsidade dessas declarações
+                            configura crime previsto no art. 299, do Código Penal Brasileiro.
                         </label>
                     </div>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary cadastro-botao-confirmar">
+                    <button type="submit" class="btn btn-primary cadastro-botao-confirmar" onclick="return validarSenha()">
                         Cadastrar
                     </button>
-                    <!--<button type="submit" class="btn btn-primary cadastro-botao-confirmar" onclick="return validarSenha()">Cadastrar</button>-->
                 </div>
             </form>
         </div>
