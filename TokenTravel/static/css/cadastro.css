@@ -1,10 +1,10 @@
-/*Área do quadrado do cadastro*/
+/*Área do quadrado do cadastro Usuário*/
 .caixa-formulario-cadastro {
     margin-top: 70px;
     position: absolute;
-    top: 70%; /* Define a posição vertical da caixa no meio da página */
-    left: 50%; /* Define a posição horizontal da caixa no meio da página */
-    transform: translate(-50%, -50%); /* Centraliza a caixa */
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: 1px solid #ccc;
     padding: 20px;
     background-color: #f7f7f7;
@@ -54,6 +54,7 @@
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
 .cadastro-botao-confirmar {
     position: absolute;
     top: 94.5%;

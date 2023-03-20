@@ -87,7 +87,7 @@ form#buscador button {
 }
 
 .navbar {
-  border-radius: 25px; /* substitua o valor de 10px pelo raio desejado */
+  border-radius: 25px;
 }
 
 .navbar .nav-link {
@@ -121,9 +121,9 @@ form#buscador button {
 }
 
 #fraseunica {
-    font-family: Roboto; /* fonte personalizada do Google Fonts */
+    font-family: Roboto;
     font-size: 40px;
     color: white;
-    padding: 20px; /* espaçamento interno */
-    text-align: center; /* centralizar o texto */
+    padding: 20px;
+    text-align: center;
 }
