@@ -20,26 +20,20 @@
     text-align: justify;
 }
 
-#portfolio01 {
-    width: 100vh;
-    height: 75vh;
-    position: absolute;
-    top: 20%;
-    left: 25%;
-
+#portfoto01 {
+    width: 75%;
+    position: relative;
+    left: 12%;
+    margin-bottom: -5%;
+    margin-top: -5%;
 }
 
-#sobre-a-empresa {
-    margin-bottom: 800px;
-}
-/*
-#portfolio05 {
-    width: 47vh;
-    height: 75vh;
-    position: absolute;
-    top: 290%;
-    left: 38.5%;
+#portfoto02 {
+    margin-bottom: -5%;
+    margin-top: -5%;
 }
 
-
-}*/
+#portfoto03 {
+    margin-bottom: 5%;
+    margin-top: -5%;
+}

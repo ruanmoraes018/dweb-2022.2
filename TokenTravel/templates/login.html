@@ -1,35 +1,44 @@
 {% extends 'menu.html' %}
 {% load static %}
 
-
 {% block title %}Login{% endblock %}
-override
 {% block h3 %}{% endblock %}
 {% block body %}
     <div class="container">
         <div class="caixa-formulario-login">
-        <h2>Login</h2>
-        <form class="row gy-2 gx-3 align-items-center" method="post">
-            <div class="col-auto">
-                <label class="form-label" for="login-email">Email:</label>
-                <input type="email" class="form-control" id="login-email" placeholder="Ex.: joaoribeiro@gmail.com" required>
-            </div>
-            <div class="col-auto">
-                <label class="form-label" for="login-password">Senha:</label>
-                <input type="password" class="form-control" id="login-password" placeholder="********" required pattern=".{8,}">
-            </div>
-            <div class="col-auto">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                    <label class="form-check-label" for="autoSizingCheck">
-                        Lembrar-se de mim.
-                    </label>
+            <h2>Login</h2>
+            <form class="row gy-2 gx-3 align-items-center" method="post" action="teste">
+                {% csrf_token %}
+                <div class="col-auto">
+                    <label class="form-label" for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ex.: joaoribeiro@gmail.com" required>
                 </div>
-            </div>
-            <div class="col-auto">
-                <button type="submit" class="btn btn-primary botao-login">Entrar</button>
-            </div>
-        </form>
-    </div>
+                <div class="col-auto">
+                    <label class="form-label" for="senha">Senha:</label>
+                    <input type="password" class="form-control" id="senha" name="senha" placeholder="********" required pattern=".{8,20}">
+                </div>
+                <div class="col-auto">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="autoSizingCheck" required>
+                        <label class="form-check-label" for="autoSizingCheck">
+                            Lembrar-se de mim.
+                        </label>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary botao-login">Entrar</button>
+                </div>
+            </form>
         </div>
+    </div>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ messages.tags }}"{% endif %}>
+                    {{ message }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}

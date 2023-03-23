@@ -5,26 +5,14 @@
 {% block body %}
 {% block h3 %}{% endblock %}
 
-<!-- Guia do Portfólio -->
-<div class="dropdown">
-  	<a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    	Guia do <br>Portfólio
-  	</a>
-
-  	<ul class="dropdown-menu">
-    	<li><a class="nav-link" href="#sobre-a-empresa">Sobre a empresa</a></li>
-    	<li><a class="nav-link" href="#como-funciona">Como funciona</a></li>
-    	<li><a class="nav-link" href="#beneficios">Benefícios</a></li>
-  	</ul>
-</div>
 <div class="container py-5">
 	<!-- Sobre a empresa -->
-	<section id="sobre-a-empresa">
-		<h2 class="display-4 mb-4">Sobre a empresa</h2>
+	<section id="sobre-a-empresa" class="container py-5">
+		<h2 class="display-12 mb-12">Sobre a empresa</h2>
 		<div class="row">
-			<div class="col-md-4" id="portfolio01">
-				<div class="card mb-4">
-					<img src="{% static 'img/Portfólio imagem seção01.png' %}" alt="Foto do autor" class="card-img-top">
+			<div class="col-md-12" id="portfoto01">
+				<div class="card mb-12">
+					<img src="{% static 'img/Portfólio imagem seção01.png' %}" alt="Foto do autor" class="card-img-top" >
 					<div class="card-body">
 						<h4 class="card-title">Sobre a empresa</h4>
 						<p class="card-text">A TokenTravel é uma empresa comprometida em simplificar e facilitar a vida
@@ -41,9 +29,9 @@
 		</div>
 	</section>
 	<!-- Como funciona -->
-	<section id="como-funciona">
+	<section id="como-funciona" class="container py-5" >
 		<h2 class="display-4 mb-4">Como funciona</h2>
-		<div class="row">
+		<div class="row" id="portfoto02">
 			<div class="col-md-4">
 				<div class="card mb-4">
 					<img src="{% static 'img/Portfólio imagem seção02.png' %}" alt="Projeto 1" class="card-img-top" id="imagem02">
@@ -80,10 +68,10 @@
 		</div>
 	</section>
 	<!-- Beneficios -->
-	<section id="beneficios">
+	<section id="beneficios" class="container py-5" >
 		<h2 class="display-4 mb-4">Benefícios</h2>
-		<div class="row">
-			<div class="col-md-4" id="portfolio05">
+		<div class="row" >
+			<div class="col-md-4" id="portfoto03">
 				<div class="card mb-4">
 					<img src="{% static 'img/Portfólio imagem seção05.png' %}" alt="Foto do autor" class="card-img-top">
 					<div class="card-body">
