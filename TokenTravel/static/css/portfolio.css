@@ -1,9 +1,11 @@
 #itens {
     line-height: 30px;
 }
+/*
 #barra-portfolio {
     width: 300px;
 }
+*/
 .dropdown {
     position: fixed;
     top: 10%;
@@ -28,7 +30,7 @@
 }
 
 #sobre-a-empresa {
-    margin-bottom: 700px;
+    margin-bottom: 800px;
 }
 /*
 #portfolio05 {
@@ -39,7 +41,5 @@
     left: 38.5%;
 }
 
-#beneficios {
-    margin-bottom: 700px;
-}
+
 }*/

@@ -17,20 +17,29 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="text" placeholder="Cidade de origem" name="origem" required>
-                    <input class="form-control me-2" type="text" placeholder="Cidade de destino" name="destino" required>
-                    <input class="form-control me-2" type="date" name="data" required>
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Sobre</a>
+                    <ul class="navbar-nav ms-auto ">
+                        <li>
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="text" placeholder="Cidade de origem" name="origem" required>
+                                <input class="form-control me-2" type="text" placeholder="Cidade de destino" name="destino" required>
+                                <input class="form-control me-2" type="date" name="data" required>
+                                <button class="btn btn-outline-success" type="submit">Buscar</button>
+                            </form>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="portfolio">Portfólio</a>
+                        <li class="nav-item" class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Portfólio
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="portfolio#sobre-a-empresa">Sobre a empresa</a></li>
+                                <li><a class="dropdown-item" href="portfolio#como-funciona">Como funciona</a></li>
+                                <li><a class="dropdown-item" href="portfolio#beneficios">Benefícios</a></li>
+                            </ul>
                         </li>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="login">Login</a>
                         </li>

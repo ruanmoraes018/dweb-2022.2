@@ -7,117 +7,113 @@
     <div class="container">
         <div class="caixa-formulario-cadastro">
             <h2 class="texto">Cadastro de Usuários</h2>
-            <form class="row g-3" id="cadastro-formulario">
+            <form class="row g-3" id="cadastro-formulario" method="post">
+                {% csrf_token %}
                 <span class="form-text cadastro-informativo">
                     *: Obrigatório.
                 </span>
                 <div class="col-md-6">
-                    <label for="cadastro-nome-completo" class="form-label">
+                    <label for="nome_completo" class="form-label">
                         Nome Completo:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="text" class="form-control" id="cadastro-nome-completo" placeholder="Ex.: Samuel Caetano Pinheiro" required>
+                    <input type="text" class="form-control" id="nome_completo" name="nome_completo" placeholder="Ex.: Samuel Caetano Pinheiro" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="cadastro-nome-preferencia" class="form-label">Como deseja ser chamado:</label>
-                    <input type="text" class="form-control" id="cadastro-nome-preferencia" placeholder="Ex.: Samuel">
+                    <label for="nome_preferencia" class="form-label">Como deseja ser chamado:</label>
+                    <input type="text" class="form-control" id="nome_preferencia" name="nome_preferencia" placeholder="Ex.: Samuel">
                 </div>
                 <div class="col-md-6">
-                    <label for="cadastro-cpf" class="form-label">
+                    <label for="cpf" class="form-label">
                         CPF:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="text" class="form-control" id="cadastro-cpf" placeholder="Ex.: 420.654.000-56" required>
+                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Ex.: 420.654.000-56" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="cadastro-telefone" class="form-label">
+                    <label for="telefone" class="form-label">
                         Contato:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="text" class="form-control" id="cadastro-telefone" name="cadastro-telefone" data-inputmask="'mask': '(99) 99999-9999'" placeholder="(99) 99999-9999" required pattern="\d+">
+                    <input type="text" class="form-control" id="telefone" name="telefone" data-inputmask="'mask': '(99) 99999-9999'" placeholder="(99) 99999-9999" required pattern="\d+">
                 </div>
                 <div class="col-md-6">
-                    <label for="cadastro-email" class="form-label">
+                    <label for="email" class="form-label">
                         Email:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="email" class="form-control" id="cadastro-email" placeholder="caetano.sam@gmail.com" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="cadastro-logradouro" class="form-label">
-                        Logradouro:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <input type="text" class="form-control" id="cadastro-logradouro" placeholder="Ex.: AV. Brasil" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="caetano.sam@gmail.com" required>
                 </div>
                 <div class="col-md-2">
-                    <label for="cadastro-numero-residencia" class="form-label">
-                        Nº:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <input type="text" class="form-control" id="cadastro-numero-residencia" placeholder="Ex.: 300" required>
-                </div>
-                <div class="col-md-5">
-                    <label for="cadastro-bairro" class="form-label">
-                        Bairro:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <input type="text" class="form-control" id="cadastro-bairro" placeholder="Ex.: Centro" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="cadastro-estado" class="form-label">
-                        Estado:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <select id="cadastro-estado" class="form-select" onchange="mostrarCidades()" required>
-                        <option value="">Selecione um estado</option>
-                        <option value="PA">Pará</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="cadastro-cidade" class="form-label">
-                        Cidade:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <select id="cadastro-cidade" style="display: none" required>
-                        <option value="">Selecione uma cidade</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <label for="cadastro-cep" class="form-label">
+                    <label for="cep" class="form-label">
                         CEP:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="text" class="form-control" id="cadastro-cep" placeholder="68703-070" required>
+                    <input type="text" class="form-control" id="cep" name="cep" placeholder="68703-070" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="cadastro-senha" class="form-label">
+                    <label for="logradouro" class="form-label">
+                        Logradouro:
+                        <span class="form-text cadastro-informativo">
+                            *
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" id="logradouro" name="logradouro" placeholder="Ex.: AV. Brasil" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="numero_residencia" class="form-label">
+                        Nº:
+                        <span class="form-text cadastro-informativo">
+                            *
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" onclick="return validarTelefone()" id="numero_residencia" name="numero_residencia" placeholder="Ex.: 300" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="bairro" class="form-label">
+                        Bairro:
+                        <span class="form-text cadastro-informativo">
+                            *
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Ex.: Centro" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="cidade" class="form-label">
+                        Cidade:
+                        <span class="form-text cadastro-informativo">
+                            *
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Ex.: Belém" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="estado" class="form-label">
+                        Estado:
+                        <span class="form-text cadastro-informativo">
+                            *
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" id="estado" name="estado" placeholder="Ex.: RJ" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="senha" class="form-label">
                         Senha:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="password" class="form-control" id="cadastro-senha" required>
+                    <input type="password" class="form-control" id="senha" name="senha" required>
                     <div class="col-auto">
                         <span class="form-text">
                             Deve ter 8–20 caracteres.
@@ -125,13 +121,13 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="cadastro-confirmar-senha" class="form-label">
+                    <label for="confirmar_senha" class="form-label">
                         Confirmar senha:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="password" class="form-control" id="cadastro-confirmar-senha" name="confirmarSenha" required pattern=".{8,20}" title="Insira a mesma senha.">
+                    <input type="password" class="form-control" id="confirmar_senha" name="confirmar_senha" required pattern=".{8,20}" title="Insira a mesma senha.">
                 </div>
                 <div class="col-12">
                     <div class="form-check">
@@ -163,4 +159,6 @@
             </div>
         </div>
     </div>
+
+    <script defer src="{% static 'js/enderecos.js' %}" onload="init()"></script>
 {% endblock %}

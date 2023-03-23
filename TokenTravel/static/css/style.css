@@ -34,6 +34,26 @@ form#buscador button {
     left: 328px;
 }
 
+@media screen and (max-width: 768px) {
+  .banner {
+    height: 80vh;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .banner {
+    height: 100vh;
+    background-size: contain;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+    .banner {
+        height: 120vh;
+    }
+}
+
 
 .banner {
     background: url("../img/Editado Banner.png") no-repeat center;
@@ -45,9 +65,11 @@ form#buscador button {
     height: 120vh;
 }
 
+
+
 .banner h2{
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 53%;
     transform: translate(-50%, -50%);
     font-family: Roboto;
@@ -126,4 +148,23 @@ form#buscador button {
     color: white;
     padding: 20px;
     text-align: center;
+}
+
+.navbar ul{
+    border: none;
+}
+
+.navbar ul li{
+    position: relative;
+    padding: 5px;
+
+    float: left;
+}
+
+.navbar .dropdown-menu {
+    background-color: #f8f9fa;
+}
+
+.navbar ul li a:hover,.navbar ul li a:focus {
+    background-color: #e5e5e5;
 }

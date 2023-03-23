@@ -1,9 +1,9 @@
 function validarTelefone() {
-    var telefone = document.getElementById("cadastro-telefone").value;
+    var telefone = document.getElementById("telefone").value;
     if (telefone === "") {
         alert("Por favor, informe o número de telefone.");
         return false;
-    } else if (telefone.length < 15) {
+    } else if (telefone.length < 10) {
         alert("O número de telefone informado é inválido.");
         return false;
     } else {
@@ -11,7 +11,7 @@ function validarTelefone() {
     }
 }
 // Obtém o elemento de entrada de telefone
-var telefoneInput = document.getElementById('cadastro-telefone');
+var telefoneInput = document.getElementById('telefone');
 
 // Adiciona um ouvinte de eventos ao elemento de entrada de telefone
 telefoneInput.addEventListener('input', function() {

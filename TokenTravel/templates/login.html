@@ -9,17 +9,14 @@ override
     <div class="container">
         <div class="caixa-formulario-login">
         <h2>Login</h2>
-        <form class="row gy-2 gx-3 align-items-center">
+        <form class="row gy-2 gx-3 align-items-center" method="post">
             <div class="col-auto">
                 <label class="form-label" for="login-email">Email:</label>
                 <input type="email" class="form-control" id="login-email" placeholder="Ex.: joaoribeiro@gmail.com" required>
             </div>
             <div class="col-auto">
                 <label class="form-label" for="login-password">Senha:</label>
-                <div class="input-group">
-                    <div class="input-group-text"></div>
-                        <input type="text" class="form-control" id="login-password" placeholder="********" required pattern=".{8,}">
-                    </div>
+                <input type="password" class="form-control" id="login-password" placeholder="********" required pattern=".{8,}">
             </div>
             <div class="col-auto">
                 <div class="form-check">

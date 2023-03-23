@@ -1,5 +1,5 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from .models import Usuario
 import os
 
 
@@ -16,7 +16,28 @@ def portfolio(request):
 
 
 def cadastro(request):
+    if request.method == 'POST':
+        novo_usuario = Usuario(
+            nome_completo=request.POST.get('nome_completo'),
+            nome_preferencia=request.POST.get('nome_preferencia'),
+            cpf=request.POST.get('cpf'),
+            telefone=request.POST.get('telefone'),
+            email=request.POST.get('email'),
+            cep=request.POST.get('cep'),
+            logradouro=request.POST.get('logradouro'),
+            numero_residencia=request.POST.get('numero_residencia'),
+            bairro=request.POST.get('bairro'),
+            cidade=request.POST.get('cidade'),
+            estado=request.POST.get('estado'),
+            senha=request.POST.get('senha'),
+        )
+        novo_usuario.save()
+        return redirect(teste)# redireciona para uma página de sucesso
     return render(request, 'cadastro-usuarios.html')
+
+
+def teste(request):
+    return render(request, 'teste.html')
 
 
 def motorista(request):
@@ -34,3 +55,5 @@ def menu(request):
 
 def pesquisa(request):
     return render(request, 'pesquisa.html')
+
+
