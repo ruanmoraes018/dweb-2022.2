@@ -1,6 +1,4 @@
 from django.core.validators import MinLengthValidator, MaxLengthValidator, RegexValidator
-from distutils.command.upload import upload
-from email.policy import default
 from django.db import models
 
 class Usuario(models.Model):

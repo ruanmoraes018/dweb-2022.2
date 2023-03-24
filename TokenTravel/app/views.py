@@ -1,27 +1,9 @@
-from django.contrib import messages
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from .models import Usuario
 import os
 
 
-# from django.http import HttpResponse
-
-
-# Create your views here.
 def login(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        senha = request.POST.get('senha')
-        user = authenticate(request, email == email, password == senha)
-        print(user)  # imprime o usuário que está sendo autenticado
-        if user is not None:
-            login(request, user)
-            return redirect(teste)  # redireciona para a página inicial após o login bem-sucedido
-        else:
-            # exibe uma mensagem de erro caso o login falhe
-            messages.error(request, 'Email ou senha inválidos.')
     return render(request, 'login.html')
 
 

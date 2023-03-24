@@ -7,7 +7,7 @@
     <div class="container">
         <div class="caixa-formulario-login">
             <h2>Login</h2>
-            <form class="row gy-2 gx-3 align-items-center" method="post" action="teste">
+            <form class="row gy-2 gx-3 align-items-center" method="post">
                 {% csrf_token %}
                 <div class="col-auto">
                     <label class="form-label" for="email">Email:</label>
@@ -35,7 +35,7 @@
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
-                <li {% if message.tags %} class="{{ messages.tags }}"{% endif %}>
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
                     {{ message }}
                 </li>
             {% endfor %}
