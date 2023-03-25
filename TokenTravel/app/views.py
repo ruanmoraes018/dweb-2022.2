@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect
 from .models import Usuario
-import os
+from django.shortcuts import render, redirect
 
 
 def login(request):
@@ -25,10 +24,10 @@ def cadastro(request):
             bairro=request.POST.get('bairro'),
             cidade=request.POST.get('cidade'),
             estado=request.POST.get('estado'),
-            senha=request.POST.get('senha'),
+            password=request.POST.get('password'),
         )
         novo_usuario.save()
-        return redirect(teste)# redireciona para uma página de sucesso
+        return redirect(teste)
     return render(request, 'cadastro-usuarios.html')
 
 

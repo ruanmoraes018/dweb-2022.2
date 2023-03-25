@@ -1461,7 +1461,7 @@
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="521" parent="504" name="contato">
+    <column id="521" parent="504" name="telefone">
       <DasType>varchar(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>

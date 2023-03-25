@@ -7,7 +7,7 @@
     <div class="container">
         <div class="caixa-formulario-cadastro">
             <h2 class="texto">Cadastro de Usuários</h2>
-            <form class="row g-3" id="cadastro-formulario" method="post">
+            <form class="row g-3" id="cadastro-formulario" method="post" onsubmit="return verificarCPF(event)">
                 {% csrf_token %}
                 <span class="form-text cadastro-informativo">
                     *: Obrigatório.
@@ -107,13 +107,13 @@
                     <input type="text" class="form-control" id="estado" name="estado" placeholder="Ex.: RJ" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="senha" class="form-label">
+                    <label for="password" class="form-label">
                         Senha:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="password" class="form-control" id="senha" name="senha" required>
+                    <input type="password" class="form-control" id="password" name="password" required>
                     <div class="col-auto">
                         <span class="form-text">
                             Deve ter 8–20 caracteres.
@@ -160,5 +160,8 @@
         </div>
     </div>
 
+    <script src="{% static 'js/telefones.js' %}"></script>
+    <script src="{% static 'js/senhas.js' %}"></script>
+    <script src="{% static 'js/validar_cpf.js' %}"></script>
     <script defer src="{% static 'js/enderecos.js' %}" onload="init()"></script>
 {% endblock %}
