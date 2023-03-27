@@ -1,5 +1,7 @@
+from django.views.generic.edit import CreateView
 from .models import Usuario
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 
 
 def login(request):
@@ -10,7 +12,7 @@ def portfolio(request):
     return render(request, 'portfolio.html')
 
 
-def cadastro(request):
+def cadastro_usuario(request):
     if request.method == 'POST':
         novo_usuario = Usuario(
             nome_completo=request.POST.get('nome_completo'),

@@ -15,7 +15,7 @@ class Usuario(models.Model):
     estado = models.CharField(max_length=2)
     cidade = models.CharField(max_length=50)
     cep = models.CharField(max_length=8)
-    password = models.CharField(max_length=20, validators=[
+    password = models.CharField(max_length=20, verbose_name='Senha', validators=[
         MinLengthValidator(8, 'Senha deve conter no mínimo 8 caracteres'),
         MaxLengthValidator(20, 'Senha deve conter no máximo 20 caracteres')
     ])
