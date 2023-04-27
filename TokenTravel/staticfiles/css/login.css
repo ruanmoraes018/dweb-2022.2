@@ -1,0 +1,51 @@
+#login-form label {
+    color: #040c21;
+}
+.botao-login {
+    transform: translateX(-50%);
+    font-family: Roboto;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    padding: 10px 25px;
+    background: #122b6e;
+    position: absolute;
+    top: 110%;
+    left: 48%;
+    border-radius: 15px;
+}
+.caixa-formulario-login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    padding: 30px;
+    background-color: #f7f7f7;
+    width: 600px;
+    height: 250px;
+    color: #040c21;
+    font-family: Roboto;
+    border-radius: 15px;
+}
+div#tel input {
+    width: 200px;
+}
+div#pass input {
+    width: 200px;
+}
+div#inputEmail input {
+    width: 400px;
+}
+div#inputPass input {
+    width: 200px;
+}
+form#login button {
+    position: absolute;
+    top: auto;
+    left: 320px;
+}
+h3 {
+    display: none;
+}

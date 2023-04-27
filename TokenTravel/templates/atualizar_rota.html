@@ -1,0 +1,64 @@
+{% extends 'pagina_motorista.html' %}
+{% load static %}
+
+{% block title %}Cadastrar Rota{% endblock %}
+
+{% block body %}
+<div class="caixa-formulario-atualizar-rota">
+    <div class="container mt-4 bg-light">
+        <h4>ATUALIZAR ROTA</h4>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="col-md-4">
+                <label for="origem" class="form-label">Origem:</label>
+                <input type="text" class="form-control" id="origem" name="origem"
+                value="{{ rota.origem }}">
+            </div>
+
+            <div class="col-md-4">
+                <label for="destino" class="form-label">Destino:</label>
+                <input type="text" class="form-control" id="destino" name="destino"
+                value="{{ rota.destino }}">
+            </div>
+
+            <div class="col-md-4">
+                <label for="preco" class="form-label">Preço:</label>
+                <input type="number" class="form-control" id="preco" name="preco"
+                value="{{ rota.preco }}">
+            </div>
+
+            <div class="col-md-4">
+                <label for="horario_ida" class="form-label">Horário de Ida:</label>
+                <input type="datetime-local" class="form-control" id="horario_ida"
+                name="horario_ida" value="{{ rota.horario_ida }}">
+            </div>
+
+            <div class="col-md-4">
+                <label for="horario_volta" class="form-label">Horário de Volta:</label>
+                <input type="datetime-local" class="form-control" id="horario_volta"
+                name="horario_volta" value="{{ rota.horario_volta }}">
+            </div>
+
+            
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="{{ form.dias_semana.id_for_label }}">Dias da semana:</label>
+                    <div class="form-check">
+                        {% for dia in form.dias_semana %}
+                        <div class="form-check-inline">
+                            {{ dia }}
+                            <label class="form-check-label" for="{{ dia.id_for_label }}">{{ dia.choice_label }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Atualizar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

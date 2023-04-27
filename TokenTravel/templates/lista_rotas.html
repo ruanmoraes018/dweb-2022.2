@@ -1,0 +1,93 @@
+{% extends 'pagina_motorista.html' %}
+
+{% load static %}
+
+{% block title %}Menu Rotas{% endblock %}
+
+{% block body %}
+
+<a href="{% url 'criar_rota' %}">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Cadastrar Rotas</button>
+</a>
+
+<div class="container mt-4 bg-white">
+    <h3 class="mb-4">Minhas Rotas</h3>
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Origem</th>
+                <th scope="col">Destino</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Horário de Ida</th>
+                <th scope="col">Horário de Volta</th>
+                <th scope="col">Dias da Semana</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rota in rotas %}
+            <tr>
+                <td>{{ rota.origem }}</td>
+                <td>{{ rota.destino }}</td>
+                <td>{{ rota.preco }}</td>
+                <td>{{ rota.horario_ida }}</td>
+                <td>{{ rota.horario_volta }}</td>
+                <td>
+                    {% for dia in rota.dias_semana.all %}
+                        {% for choice in dia.DIAS_SEMANA_CHOICES %}
+                            {% if choice.0 == dia.nome %}
+                                {{ choice.1 }}{% if not forloop.last %}, {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+                <td>
+                    
+                    <a href="{% url 'atualizar_rota' id=rota.id %}">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+                        data-bs-whatever="@mdo">Atualizar Rota</button>
+                    </a>
+
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Deletar
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Tem Certeza que deseja
+                                        deletar?</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Após confirmar, esta ação não pode ser desfeita.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Fechar</button>
+                                    <form action="{% url 'deletar_rota' pk=rota.pk %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="next" value="{{ request.path }}">
+                                        <button type="submit" class="btn btn-danger">Deletar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8" class="bg-white">Nenhuma rota cadastrada.</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+{% endblock %}
