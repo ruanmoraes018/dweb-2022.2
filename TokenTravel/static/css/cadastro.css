@@ -9,7 +9,7 @@
     padding: 20px;
     background-color: #f7f7f7;
     width: 900px;
-    height: 775px;
+    height: 600px;
     color: #040c21;
     font-family: Roboto;
     border-radius: 15px;
@@ -25,11 +25,28 @@
     padding: 20px;
     background-color: #f7f7f7;
     width: 900px;
-    height: 960px;
+    height: 720px;
     color: #040c21;
     font-family: Roboto;
     border-radius: 15px;
 }
+
+.caixa-formulario-atualizar-rota {
+    margin-top: 100px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f7f7f7;
+    width: 900px;
+    height: 720px;
+    color: #040c21;
+    font-family: Roboto;
+    border-radius: 15px;
+}
+
 .botao-cadastro {
     transform: translateX(-50%);
     font-family: Roboto;
@@ -57,12 +74,14 @@
 
 .cadastro-botao-confirmar {
     position: absolute;
-    top: 94.5%;
+    top: 92%;
     left: 85%;
 }
 .cadastro-fonte {
     font-family: Roboto;
 }
+
+/* Texto do Span de Obrigatório */
 .cadastro-informativo {
     color: #c2182b;
 }

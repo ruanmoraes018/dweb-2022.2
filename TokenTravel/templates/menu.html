@@ -6,7 +6,7 @@
     <div id="navbar">
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light">
-                <a class="navbar-brand" href="http://127.0.0.1:8000/">
+                <a class="navbar-brand" href="{% url 'página inicial' %}">
                     <img src="{% static 'img/TokenTravel Logo 1.png' %}" class="img-fluid" alt="Logo" id="logobar">
                 </a>
                 <button class="navbar-toggler"
@@ -26,7 +26,9 @@
                                 <input class="form-control me-2" type="text" placeholder="Cidade de origem" name="origem" required>
                                 <input class="form-control me-2" type="text" placeholder="Cidade de destino" name="destino" required>
                                 <input class="form-control me-2" type="date" name="data" required>
-                                <button class="btn btn-outline-success" type="submit">Buscar</button>
+                                <a href="{% url 'pesquisa' %}">
+                                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                                </a>
                             </form>
                         </li>
                         <li class="nav-item" class="dropdown">
@@ -34,18 +36,24 @@
                                 Portfólio
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="portfolio#sobre-a-empresa">Sobre a empresa</a></li>
-                                <li><a class="dropdown-item" href="portfolio#como-funciona">Como funciona</a></li>
-                                <li><a class="dropdown-item" href="portfolio#beneficios">Benefícios</a></li>
+                                <li><a class="dropdown-item" href="{% url 'portfolio' %}#sobre-a-empresa">Sobre a empresa</a></li>
+                                <li><a class="dropdown-item" href="{% url 'portfolio' %}#como-funciona">Como funciona</a></li>
+                                <li><a class="dropdown-item" href="{% url 'portfolio' %}#beneficios">Benefícios</a></li>
                             </ul>
                         </li>
+
+                        <li class="nav-item" class="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Login
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'login_passageiro' %}">Para Passageiros</a></li>
+                                <li><a class="dropdown-item" href="{% url 'login_motorista' %}">Para Motoristas</a></li>
+                            </ul>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cadastro_usuario">Cadastrar</a>
+                            <a class="nav-link" href="{% url 'cadastro_passageiro' %}">Cadastrar</a>
                         </li>
                     </ul>
                 </div>

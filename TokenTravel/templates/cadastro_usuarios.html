@@ -7,34 +7,39 @@
     <div class="container">
         <div class="caixa-formulario-cadastro">
             <h2 class="texto">Cadastro de Usuários</h2>
-            <form class="row g-3" id="cadastro-formulario" method="post" onsubmit="return verificarCPF(event)">
+            <form class="row g-3" id="cadastro-formulario" method="POST" action="{% url 'cadastro_passageiro' %}">
                 {% csrf_token %}
+
                 <span class="form-text cadastro-informativo">
                     *: Obrigatório.
                 </span>
-                <div class="col-md-6">
+                
+                <div class="col-md-5">
                     <label for="nome_completo" class="form-label">
                         Nome Completo:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="text" class="form-control" id="nome_completo" name="nome_completo" placeholder="Ex.: Samuel Caetano Pinheiro" required>
+                    <input type="text" class="form-control" id="nome_completo" name="nome_completo" placeholder="Samuel Caetano Pinheiro" required>
                 </div>
-                <div class="col-md-6">
-                    <label for="nome_preferencia" class="form-label">Como deseja ser chamado:</label>
-                    <input type="text" class="form-control" id="nome_preferencia" name="nome_preferencia" placeholder="Ex.: Samuel">
+
+                <div class="col-md-2">
+                    <label for="nome_preferencia" class="form-label">Apelido:</label>
+                    <input type="text" class="form-control" id="nome_preferencia" name="nome_preferencia" placeholder="Samuel">
                 </div>
-                <div class="col-md-6">
+
+                <div class="col-md-2">
                     <label for="cpf" class="form-label">
                         CPF:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Ex.: 420.654.000-56" required>
+                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="420.654.000-56" onsubmit="return verificarCPF(event); return validarTelefone()" required>
                 </div>
-                <div class="col-md-6">
+
+                <div class="col-md-3">
                     <label for="telefone" class="form-label">
                         Contato:
                         <span class="form-text cadastro-informativo">
@@ -43,15 +48,7 @@
                     </label>
                     <input type="text" class="form-control" id="telefone" name="telefone" data-inputmask="'mask': '(99) 99999-9999'" placeholder="(99) 99999-9999" required pattern="\d+">
                 </div>
-                <div class="col-md-6">
-                    <label for="email" class="form-label">
-                        Email:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="caetano.sam@gmail.com" required>
-                </div>
+                
                 <div class="col-md-2">
                     <label for="cep" class="form-label">
                         CEP:
@@ -61,51 +58,77 @@
                     </label>
                     <input type="text" class="form-control" id="cep" name="cep" placeholder="68703-070" required>
                 </div>
-                <div class="col-md-6">
+
+                <div class="col-md-4">
                     <label for="logradouro" class="form-label">
                         Logradouro:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="text" class="form-control" id="logradouro" name="logradouro" placeholder="Ex.: AV. Brasil" required>
+                    <input type="text" class="form-control" id="logradouro" name="logradouro" placeholder="AV. Brasil" required>
                 </div>
-                <div class="col-md-2">
+
+                <div class="col-md-1">
                     <label for="numero_residencia" class="form-label">
                         Nº:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="text" class="form-control" onclick="return validarTelefone()" id="numero_residencia" name="numero_residencia" placeholder="Ex.: 300" required>
+                    <input type="text" class="form-control" id="numero_residencia" name="numero_residencia" placeholder="300" required>
                 </div>
-                <div class="col-md-4">
+
+                <div class="col-md-2">
                     <label for="bairro" class="form-label">
                         Bairro:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Ex.: Centro" required>
+                    <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Centro" required>
                 </div>
-                <div class="col-md-6">
+
+                <div class="col-md-2">
                     <label for="cidade" class="form-label">
                         Cidade:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Ex.: Belém" required>
+                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Belém" required>
                 </div>
-                <div class="col-md-4">
+
+                <div class="col-md-1">
                     <label for="estado" class="form-label">
-                        Estado:
+                        UF:
                         <span class="form-text cadastro-informativo">
                             *
                         </span>
                     </label>
-                    <input type="text" class="form-control" id="estado" name="estado" placeholder="Ex.: RJ" required>
+                    <input type="text" class="form-control" id="estado" name="estado" placeholder="RJ" required>
                 </div>
+
+                <div class="col-md-6">
+                    <label for="username" class="form-label">
+                        Nome de Usuário:
+                        <span class="form-text cadastro-informativo">
+                            *
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="joaopaulo456" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="email" class="form-label">
+                        Email:
+                        <span class="form-text cadastro-informativo">
+                            *
+                        </span>
+                    </label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="caetano.sam@gmail.com" required>
+                </div>
+
                 <div class="col-md-6">
                     <label for="password" class="form-label">
                         Senha:
@@ -113,13 +136,14 @@
                             *
                         </span>
                     </label>
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <input type="password" class="form-control" id="password" name="senha" required>
                     <div class="col-auto">
                         <span class="form-text">
                             Deve ter 8–20 caracteres.
                         </span>
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <label for="confirmar_senha" class="form-label">
                         Confirmar senha:
@@ -129,19 +153,22 @@
                     </label>
                     <input type="password" class="form-control" id="confirmar_senha" name="confirmar_senha" required pattern=".{8,20}" title="Insira a mesma senha.">
                 </div>
+
                 <div class="col-12">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="gridCheck" required>
                         <label class="form-check-label" for="gridCheck">
-                            Lembrar-se de mim.
+                            Li e concordo com os termos de uso e política de privacidade.
                         </label>
                     </div>
                 </div>
+
                 <div>
                     <button type="submit" class="btn btn-primary cadastro-botao-confirmar" onclick="return validarSenha()">
                         Cadastrar
                     </button>
                 </div>
+
             </form>
         </div>
     </div>
@@ -155,10 +182,8 @@
         <div class="collapse collapse-horizontal" id="collapseWidthExample">
             <div class="card card-body" style="width: 300px;">
                 Separamos uma página específica para cadastrar motoristas em nossos serviços.
-                <a href="motorista" class="btn btn-primary stretched-link">Vamos lá!</a>
+                <a href="{% url 'cadastro_motorista' %}" class="btn btn-primary stretched-link">Vamos lá!</a>
             </div>
         </div>
     </div>
-
-    <script defer src="{% static 'js/enderecos.js' %}" onload="init()"></script>
 {% endblock %}

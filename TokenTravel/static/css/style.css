@@ -19,6 +19,7 @@ h3 {
 h4 {
     font-family: Roboto;
     text-align: center;
+    
 }
 body {
     background-color: #040c21;
@@ -93,7 +94,7 @@ form#buscador button {
     padding: 10px 25px;
     background: #c2800d;
     position: absolute;
-    margin-top: 33%;
+    margin-top: 35%;
     left: 50%;
     border-radius: 15px;
 }
