@@ -1,0 +1,93 @@
+{% extends 'pagina_motorista.html' %}
+
+{% load static %}
+
+{% block title %}Menu Rotas{% endblock %}
+
+{% block body %}
+
+<div class="container mt-4 bg-white rounded">
+    <h3 class="mb-4">Minhas Rotas</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Origem
+                </th>
+                <th scope="col">
+                    Destino
+                </th>
+                <th scope="col">
+                    Preço
+                </th>
+                <th scope="col">
+                    Ida
+                </th>
+                <th scope="col">
+                    Tipo do veículo
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rota in rotas %}
+            <tr>
+                <td>
+                    {{ rota.origem }}
+                </td>
+                <td>
+                    {{ rota.destino }}
+                </td>
+                <td>
+                    {{ rota.preco }}
+                </td>
+                <td>
+                    {{ rota.horario_ida }}
+                </td>
+                <td>
+                    {{ rota.tipo_veiculo }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <strong>Dias da Semana:</strong>
+                    {% for dia in rota.dias_semana.all %}
+                    {% for choice in dia.DIAS_SEMANA_CHOICES %}
+                    {% if choice.0 == dia.nome %}
+                    {{ choice.1 }}{% if not forloop.last %}, {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                    <br>
+                    <strong>Ações:</strong>
+                    <a href="{% url 'atualizar_rota' id=rota.id %}">
+                        <button type="button" class="acao_editar btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal2" data-bs-whatever="@mdo">
+                            Editar
+                        </button>
+                    </a>
+                    <a href="{% url 'deletar_rota' id=rota.id %}">
+                        <button type="button" class="acao_dell btn btn-danger" data-toggle="modal"
+                            data-target="#confirmarDelecao" data-rota="{{ rota.id }}">
+                            Deletar
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="bg-white">
+                    Nenhuma rota cadastrada.
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+        <a href="{% url 'criar_rota' %}">
+            <button type="button" class="btn btn-primary botao-personalizado" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Cadastrar Rotas</button>
+        </a>
+    </div>
+    
+</div>
+
+{% endblock %}

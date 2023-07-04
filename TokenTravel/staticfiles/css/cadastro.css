@@ -1,0 +1,128 @@
+/*Área do quadrado do cadastro Usuário*/
+
+.card.card-body {
+    width: 300px;
+}
+
+@media (max-width: 576px) {
+    .card.card-body {
+        width: 200px;
+        /* Largura para telas menores */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Media query para telas menores */
+@media (max-width: 576px) {
+    .cad_motorista {
+        max-width: 80%;
+        /* Define uma largura menor para telas menores */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.container-cadastro_pass {
+    margin-top: 4rem;
+    background-color: #f8f9fa;
+    max-width: 60rem;
+    /* Ajuste o valor conforme necessário */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5rem;
+}
+
+.container_cad_motorista {
+    margin-top: 4rem;
+    background-color: #f8f9fa;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5rem;
+}
+
+.botao-cadastro {
+    transform: translateX(-50%);
+    font-family: Roboto;
+    font-size: 25px;
+    font-weight: bold;
+    color: #040c21;
+    text-decoration: none;
+    padding: 10px 25px;
+    background: white;
+    position: absolute;
+    top: 75%;
+    left: 60%;
+    border-radius: 15px;
+}
+
+.texto h2 {
+    color: #040c21;
+    font-family: Roboto;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.cadastro-fonte {
+    font-family: Roboto;
+}
+
+/* Texto do Span de Obrigatório */
+.cadastro-informativo {
+    color: #c2182b;
+}
+
+
+.botao-atualizarrota, .botao-cadastrarrota, .botao-dellrota {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-atualizarrota:hover, .botao-cadastrarrota:hover, .botao-dellrota:hover {
+    background-color: #882121;
+    transform: scale(1.05);
+}
+
+.botao-cancelaratualiza, .botao-cancelarcadastrar, .botao-dellcancell {
+    background-color: #8c67f1;
+    transform: scale(1.05);
+}
+
+.acao_editar:hover {
+    background-color: #e67540;
+    transform: scale(1.05);
+}
+
+.acao_dell:hover {
+    background-color: #e67540;
+    transform: scale(1.05);
+}
+
+
+.botao-personalizado {
+    font-family: Roboto;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #2e0dc2;
+    border-radius: 15px;
+}
+
+.botao-personalizado:hover {
+    background: #e44202;
+    transition: 0.7s all;
+    color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 1px;
+}

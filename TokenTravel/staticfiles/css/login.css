@@ -1,0 +1,88 @@
+#login-form label {
+    color: #040c21;
+}
+
+.container_login_pass {
+    margin-top: 4rem;
+    background-color: #f8f9fa;
+    width: 100%;
+    max-width: 30rem;
+    border-radius: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container_login_pass p {
+    font-size: 40px;
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+.container_login_motorista {
+    margin-top: 4rem;
+    background-color: #f8f9fa;
+    width: 100%;
+    max-width: 30rem;
+    border-radius: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container_login_motorista p {
+    font-size: 40px;
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+.botao_login_pass {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.botao_login_motorista {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Usando tanto em login, como em cadastro, pesquisar rotas */
+.botao-login {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transform: scale(1);
+}
+
+.botao-login:hover {
+    background-color: #882121;
+    transform: scale(1.05);
+}
+
+div#tel input {
+    width: 200px;
+}
+div#pass input {
+    width: 200px;
+}
+div#inputEmail input {
+    width: 400px;
+}
+div#inputPass input {
+    width: 200px;
+}
+form#login button {
+    position: absolute;
+    top: auto;
+    left: 320px;
+}
+h3 {
+    display: none;
+}
