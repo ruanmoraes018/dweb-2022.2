@@ -1,13 +1,10 @@
 from django import forms
-from django.contrib.auth.hashers import make_password
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
-from django.core.validators import MinLengthValidator, MaxLengthValidator, RegexValidator
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.core.validators import RegexValidator
 from .models import Passageiro, Motorista, RotaViagem, DiaSemana
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User, Group, Permission
+from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 
-# Passageiros
 
 class PassageiroFormPadrao(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -26,7 +23,8 @@ class PassageiroFormPadrao(UserCreationForm):
 
     class Meta:
         model = User and Passageiro
-        fields = ('nome_completo', 'nome_preferencia', 'cpf', 'telefone', 'cep', 'logradouro', 'numero_residencia', 'bairro', 'cidade', 'estado', 'username', 'email')
+        fields = ('nome_completo', 'nome_preferencia', 'cpf', 'telefone', 'cep', 'logradouro',
+                  'numero_residencia', 'bairro', 'cidade', 'estado', 'username', 'email')
 
     def save(self, commit=True):
         usuario = super().save(commit=False)
@@ -35,7 +33,6 @@ class PassageiroFormPadrao(UserCreationForm):
             usuario.save()
         return usuario
 
-# Motoritas
 
 class MotoristaFormPadrao(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -58,7 +55,8 @@ class MotoristaFormPadrao(UserCreationForm):
 
     class Meta:
         model = User and Motorista
-        fields = ('nome_completo', 'nome_preferencia', 'cpf', 'telefone', 'cep', 'logradouro', 'numero_residencia', 'bairro', 'cidade', 'estado', 'cnh', 'placa', 'renavam', 'chassi', 'username', 'email')
+        fields = ('nome_completo', 'nome_preferencia', 'cpf', 'telefone', 'cep', 'logradouro', 'numero_residencia',
+                  'bairro', 'cidade', 'estado', 'cnh', 'placa', 'renavam', 'chassi', 'username', 'email')
 
     def save(self, commit=True):
         motorista = super().save(commit=False)
@@ -67,12 +65,12 @@ class MotoristaFormPadrao(UserCreationForm):
             motorista.save()
         return motorista
 
-# Continuando Usuário
 
 class PassageiroFormPersonalizado(forms.ModelForm):
     is_superuser = forms.BooleanField(
         label=_('Administrador'),
-        widget=forms.RadioSelect(choices=((True, _('Sim')), (False, _('Não')))),
+        widget=forms.RadioSelect(
+            choices=((True, _('Sim')), (False, _('Não')))),
         initial=False,
         required=False
     )
@@ -90,12 +88,11 @@ class PassageiroFormPersonalizado(forms.ModelForm):
         self.fields['is_superuser'].label = _('Administrador')
 
 
-# Continuando Motorista
-
 class MotoristaFormPersonalizado(forms.ModelForm):
     is_superuser = forms.BooleanField(
         label=_('Administrador'),
-        widget=forms.RadioSelect(choices=((True, _('Sim')), (False, _('Não')))),
+        widget=forms.RadioSelect(
+            choices=((True, _('Sim')), (False, _('Não')))),
         initial=False,
         required=False
     )
@@ -114,28 +111,20 @@ class MotoristaFormPersonalizado(forms.ModelForm):
 
 
 class LoginForm(AuthenticationForm):
-    email = forms.CharField(widget=forms.TextInput(attrs={'autofocus': True, 'type': 'email'}))
+    email = forms.CharField(widget=forms.TextInput(
+        attrs={'autofocus': True, 'type': 'email'}))
     password = forms.CharField(
         label="Senha",
         strip=False,
         widget=forms.PasswordInput(attrs={'autocomplete': 'current-password'}),
     )
 
-# METODO QUE FUNFA
-
-from django import forms
-from .models import RotaViagem, DiaSemana
-
 
 class RotaViagemForm(forms.ModelForm):
-    dias_semana = forms.MultipleChoiceField(choices=DiaSemana.DIAS_SEMANA_CHOICES, widget=forms.CheckboxSelectMultiple)
-
-    # class Meta:
-    #     model = RotaViagem
-    #     fields = ['origem', 'destino', 'preco', 'horario_ida', 'horario_volta', 'dias_semana']
+    dias_semana = forms.MultipleChoiceField(
+        choices=DiaSemana.DIAS_SEMANA_CHOICES, widget=forms.CheckboxSelectMultiple)
 
     class Meta:
         model = RotaViagem
-        fields = ['origem', 'destino', 'preco', 'horario_ida', 'dias_semana', 'tipo_veiculo']
-
-
+        fields = ['origem', 'destino', 'preco',
+                  'horario_ida', 'dias_semana', 'tipo_veiculo']

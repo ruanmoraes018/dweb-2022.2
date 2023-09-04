@@ -6,256 +6,145 @@
 {% block h3 %}{% endblock %}
 <div class="container_cad_motorista">
     <div class="text-center">
-            <h2 class="texto">Cadastro de Motoristas</h2>
-            <form class="row gy-2 gx-3 align-items-center" method="POST" action="{% url 'cadastro_motorista' %}">
-                {% csrf_token %}
-
-                <span class="form-text cadastro-informativo">
-                    *: Obrigatório.
-                </span>
-
-                <div class="col-md-6">
-                    <label for="nome_completo" class="form-label">
-                        Nome Completo:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="text" class="form-control" id="nome_completo" name="nome_completo" placeholder="Samuel Caetano Pinheiro" required>
+        <h2 class="texto">Cadastro de Motoristas</h2>
+        <form class="row gy-2 gx-3 align-items-center" method="POST" action="{% url 'cadastro_motorista' %}">
+            {% csrf_token %}
+            <span class="form-text cadastro-informativo">*: Obrigatório.</span>
+            <div class="col-md-6">
+                <label for="nome_completo" class="form-label">Nome Completo:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="text" class="form-control" id="nome_completo" name="nome_completo" placeholder="Samuel Caetano Pinheiro" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="nome_preferencia" class="form-label">Apelido:</label>
+                <div class="col-11 mx-auto">
+                    <input type="text" class="form-control" id="nome_preferencia" name="nome_preferencia" placeholder="Samuel">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="cpf" class="form-label">CPF:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="420.654.000-56" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="cnh" class="form-label">CNH:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="text" class="form-control" id="cnh" name="cnh" placeholder="25050892085" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="telefone" class="form-label">Contato:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="text" class="form-control" id="telefone" name="telefone" data-inputmask="'mask': '(99) 99999-9999'" placeholder="(99) 99999-9999" required pattern="\d+">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="placa" class="form-label">Placa:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="text" class="form-control" id="placa" name="placa" placeholder="DBZ-2021" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="renavam" class="form-label">Renavam:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="text" class="form-control" id="renavam" name="renavam" placeholder="00123456789" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="chassi" class="form-label">Chassi:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="text" class="form-control" id="chassi" name="chassi" placeholder="BKA2J8E8JK241DG7Q" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="cep" class="form-label">CEP:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="text" class="form-control" id="cep" name="cep" placeholder="68703-070" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="logradouro" class="form-label">Logradouro:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="text" class="form-control" id="logradouro" name="logradouro" placeholder="AV. Brasil" required>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label for="numero_residencia" class="form-label">Nº:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-8 mx-auto">
+                    <input type="text" class="form-control" id="numero_residencia" name="numero_residencia" placeholder="300" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="bairro" class="form-label">Bairro:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-12 mx-auto">
+                    <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Centro" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="cidade" class="form-label">Cidade:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Belém" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="estado" class="form-label">UF:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-6 mx-auto">
+                    <input type="text" class="form-control" id="estado" name="estado" placeholder="RJ" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="username" class="form-label">Nome de Usuário:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="joaopaulo456" required>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <label for="email" class="form-label">Email:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="caetano.sam@gmail.com" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="password" class="form-label">Senha:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="password" class="form-control" id="password" name="senha" required title="Deve possuir 8 - 20 caracteres!">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="confirmar_senha" class="form-label">Confirmar senha:<span class="form-text cadastro-informativo">*</span></label>
+                <div class="col-11 mx-auto">
+                    <input type="password" class="form-control" id="confirmar_senha" name="confirmar_senha" required pattern=".{8,20}" title="Insira a mesma senha.">
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-9 mx-auto">
+                    <div class="form-check d-flex align-items-center justify-content-center">
+                        <input class="form-check-input" type="checkbox" id="autoSizingCheck" required>
+                        <label class="form-check-label ml-3 text-center" for="autoSizingCheck">
+                            Li e concordo com os termos de uso e política de privacidade.
+                        </label>
                     </div>
                 </div>
-
-                <div class="col-md-6">
-                    <label for="nome_preferencia" class="form-label">Apelido:</label>
-                    <div class="col-11 mx-auto">
-                        <input type="text" class="form-control" id="nome_preferencia" name="nome_preferencia" placeholder="Samuel">
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <label for="cpf" class="form-label">
-                        CPF:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="420.654.000-56" required>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <label for="cnh" class="form-label">
-                        CNH:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="text" class="form-control" id="cnh" name="cnh" placeholder="25050892085" required>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <label for="telefone" class="form-label">
-                        Contato:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="text" class="form-control" id="telefone" name="telefone" data-inputmask="'mask': '(99) 99999-9999'" placeholder="(99) 99999-9999" required pattern="\d+">
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <label for="placa" class="form-label">
-                        Placa:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="text" class="form-control" id="placa" name="placa" placeholder="DBZ-2021" required>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <label for="renavam" class="form-label">
-                        Renavam:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="text" class="form-control" id="renavam" name="renavam" placeholder="00123456789" required>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <label for="chassi" class="form-label">
-                        Chassi:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="text" class="form-control" id="chassi" name="chassi" placeholder="BKA2J8E8JK241DG7Q" required>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <label for="cep" class="form-label">
-                        CEP:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="text" class="form-control" id="cep" name="cep" placeholder="68703-070" required>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <label for="logradouro" class="form-label">
-                        Logradouro:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="text" class="form-control" id="logradouro" name="logradouro" placeholder="AV. Brasil" required>
-                    </div>
-                </div>
-
-                <div class="col-md-2">
-                    <label for="numero_residencia" class="form-label">
-                        Nº:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-8 mx-auto">
-                        <input type="text" class="form-control" id="numero_residencia" name="numero_residencia" placeholder="300" required>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <label for="bairro" class="form-label">
-                        Bairro:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-12 mx-auto">
-                        <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Centro" required>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <label for="cidade" class="form-label">
-                        Cidade:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Belém" required>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <label for="estado" class="form-label">
-                        UF:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-6 mx-auto">
-                        <input type="text" class="form-control" id="estado" name="estado" placeholder="RJ" required>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <label for="username" class="form-label">
-                        Nome de Usuário:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="joaopaulo456" required>
-                    </div>
-                </div>
-
-                <div class="col-md-5">
-                    <label for="email" class="form-label">
-                        Email:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="caetano.sam@gmail.com" required>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <label for="password" class="form-label">
-                        Senha:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="password" class="form-control" id="password" name="senha" required title="Deve possuir 8 - 20 caracteres!">
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <label for="confirmar_senha" class="form-label">
-                        Confirmar senha:
-                        <span class="form-text cadastro-informativo">
-                            *
-                        </span>
-                    </label>
-                    <div class="col-11 mx-auto">
-                        <input type="password" class="form-control" id="confirmar_senha" name="confirmar_senha" required pattern=".{8,20}" title="Insira a mesma senha.">
-                    </div>
-                </div>
-                
-                <div class="row g-3">
-                    <div class="col-md-9 mx-auto">
-                        <div class="form-check d-flex align-items-center">
-                            <input class="form-check-input" type="checkbox" id="autoSizingCheck" required>
-                            <label class="form-check-label ml-3" for="autoSizingCheck">
-                                Li e concordo com os termos de uso e política de privacidade.
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-auto mx-auto">
-                    <button type="submit" onclick="validarSenha(); verificarCPF(event); validarTelefone()" id="liveAlertBtn" value="cadastrar" class="botao-login btn btn-primary" data-bs-toggle="modal" data-bs-target="#loadingModal">
-                        Cadastrar
-                    </button>
-                </div>
-                
-                <!-- Modal de animação de carregando -->
-                <div class="modal fade" id="loadingModal" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body text-center">
-                                <div class="spinner-border text-primary" role="status">
-                                    <span class="visually-hidden">Carregando...</span>
-                                </div>
+            </div>            
+            <div class="col-auto mx-auto">
+                <button type="submit" onclick="validarSenha(); verificarCPF(event); validarTelefone()" id="liveAlertBtn" value="cadastrar" class="botao-login btn btn-primary" data-bs-toggle="modal" data-bs-target="#loadingModal">
+                    Cadastrar
+                </button>
+            </div>
+            <div class="modal fade" id="loadingModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body text-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Carregando...</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
+</div>
 {% endblock %}

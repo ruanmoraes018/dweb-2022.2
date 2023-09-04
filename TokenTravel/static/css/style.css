@@ -1,96 +1,82 @@
+h2,
+h3 {
+    margin-left: -30px;
+    margin-bottom: 50px
+}
+
+#fraseunica,
+h2,
+h3 {
+    font-size: 40px;
+    text-align: center
+}
+
+#fraseunica,
+.button,
+h3 {
+    font-family: Roboto;
+    color: #000000
+}
+
+#fraseunica,
+.banner,
+h2,
+h3,
+h4 {
+    text-align: center
+}
+
+.container_boasvindas {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
 h2 {
     color: #040c21;
-    font-family: Roboto;
-    font-size: 40px;
-    margin-left: -30px;
-    margin-bottom: 50px;
-    text-align: center;
+    font-family: Roboto
 }
 
 h3 {
-    margin-top: 10%;
-    color: white;
-    font-family: Roboto;
-    font-size: 40px;
-    margin-left: -30px;
-    margin-bottom: 50px;
-    text-align: center;
+    margin-top: 10%
 }
 
 h4 {
-    font-family: Roboto;
-    text-align: center;
-
+    font-family: Roboto
 }
 
 body {
-    background-color: #040c21;
+    background-color: #040c21
 }
 
 form#buscador input {
-    width: 400px;
+    width: 400px
 }
 
 form#buscador button {
     position: absolute;
     top: auto;
-    left: 328px;
+    left: 328px
 }
-
-/* @media screen and (max-width: 768px) {
-  .banner {
-    height: 80vh;
-    background-size: cover;
-  }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .banner {
-    height: 100vh;
-    background-size: contain;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-    .banner {
-        height: 120vh;
-    }
-} */
 
 .banner {
-    background: url("../img/Editado Banner.png") no-repeat center;
-    background-size: contain;
+    background: url("../img/Editado Banner.png") center/contain no-repeat;
     position: absolute;
     display: inline-block;
     overflow: hidden;
-    text-align: center;
     width: 100%;
-    height: 100%;
+    height: 100%
 }
-
-/* .banner h2{
-    position: absolute;
-    top: 50%;
-    left: 52%;
-    transform: translate(-50%, -50%);
-    font-family: Roboto;
-    font-size: 40px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: white;
-    text-shadow: 2px 2px 6px black;
-    text-align: center;
-    margin-top: 130px;
-    margin-bottom: 20px;
-    line-height: 60px;
-} */
 
 .button {
     transform: translateX(-50%);
-    font-family: Roboto;
     font-size: 25px;
-    font-weight: bold;
-    color: white;
+    font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
     padding: 10px 25px;
@@ -98,35 +84,34 @@ form#buscador button {
     position: absolute;
     margin-top: 15%;
     left: 50%;
-    border-radius: 15px;
+    border-radius: 15px
 }
 
 .botao:hover {
     background: #0024ad;
-    transition: 0.7s all;
+    transition: .7s;
     color: red;
-    box-shadow: 1px 1px 1px;
+    box-shadow: 1px 1px 1px
 }
 
 .navbar {
-    border-radius: 25px;
+    border-radius: 25px
 }
 
 .navbar .nav-link {
-    transition: color 0.2s ease-in-out;
-    color: black;
+    transition: color .2s ease-in-out;
+    color: #000;
     position: relative;
-    font-size: 18px;
-
+    font-size: 18px
 }
 
 #logobar {
-    width: 75px;
+    width: 75px
 }
 
 .navbar .nav-link:hover {
     color: #007bff;
-    text-decoration: underline;
+    text-decoration: underline
 }
 
 .navbar .nav-link:after {
@@ -139,33 +124,45 @@ form#buscador button {
     background-color: #007bff;
     visibility: hidden;
     transform: scaleX(0);
-    transition: all 0.2s ease-in-out 0s;
+    transition: .2s ease-in-out
 }
 
 #fraseunica {
-    font-family: Roboto;
-    font-size: 40px;
-    color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 20px
 }
 
 .navbar ul {
-    border: none;
+    border: none
 }
 
 .navbar ul li {
     position: relative;
     padding: 5px;
-
-    float: left;
+    float: left
 }
 
 .navbar .dropdown-menu {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa
 }
 
-.navbar ul li a:hover,
-.navbar ul li a:focus {
-    background-color: #e5e5e5;
+.navbar ul li a:focus,
+.navbar ul li a:hover {
+    background-color: #e5e5e5
+}
+
+/* Estilizar os itens da lista de sugestões para origem e destino */
+#autocompleteOrigem .autocomplete-result-list li {
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    background-color: white;
+    list-style: none;
+    border-radius: 5px;
+}
+
+#autocompleteDestino .autocomplete-result-list li {
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    background-color: white;
+    list-style: none;
+    border-radius: 5px;
 }

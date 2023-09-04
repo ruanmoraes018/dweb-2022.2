@@ -1,7 +1,5 @@
 {% extends 'pagina_motorista.html' %}
-
-{% block title %} Deletar Rota {% endblock %}
-
+{% block title %}Deletar Rota{% endblock %}
 {% block body %}
 <div class="caixa-formulario-deletar-rota">
   <div class="container mt-4 bg-light col-md-4 offset-md-4 rounded">
@@ -23,15 +21,12 @@
             {% endfor %}
           {% endfor %}.
         </strong>
-        
         <br><br>
         Tem certeza que deseja deletar esta rota?
       </p>
-      
       <a href="{% url 'lista_rotas' %}" class="botao-dellcancell btn btn-secondary">Cancelar</a>
       <button type="submit" name="confirmar" class="botao-dellrota btn btn-danger">Confirmar</button>
     </form>
   </div>
 </div>
-
 {% endblock %}

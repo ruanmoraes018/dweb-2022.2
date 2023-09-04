@@ -1,16 +1,13 @@
 {% extends 'menu.html' %}
 {% load static %}
-
 {% block title %}Login - Motorista{% endblock %}
 {% block h3 %}{% endblock %}
 {% block body %}
-
 <div class="container_login_motorista">
     <div class="text-center">
         <p>Login</p>
         <form class="row gy-2 gx-3 align-items-center" method="POST" action="{% url 'login_motorista' %}">
             {% csrf_token %}
-
             <div class="col-md-12">
                 <label class="form-label" for="email">Email:</label>
                 <div class="col-10 mx-auto">
@@ -18,7 +15,6 @@
                     placeholder="Ex.: joaoribeiro@gmail.com" required>
                 </div>
             </div>
-
             <div class="col-md-12">
                 <label class="form-label" for="password">Senha:</label>
                 <div class="col-10 mx-auto">
@@ -26,7 +22,6 @@
                     required pattern=".{8,20}">
                 </div>
             </div>
-
             <div class="col-md-12">
                 <div class="col-md-4 mx-auto">
                     <div class="form-check d-flex align-items-center">
@@ -37,11 +32,9 @@
                     </div>
                 </div>
             </div>
-
             <div class="botao_login_motorista col-auto mx-auto">
                 <button type="submit" id="liveAlertBtn" value="entrar" class="btn btn-primary botao-login" data-bs-toggle="modal" data-bs-target="#loadingModal">Entrar</button>
             </div>
-            
             <div class="modal fade" id="loadingModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -56,6 +49,4 @@
         </form>
     </div>
 </div>
-
-
 {% endblock %}

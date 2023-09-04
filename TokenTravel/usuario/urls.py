@@ -2,13 +2,9 @@ from django.urls import path, include
 from rest_framework import routers
 from .viewset import PassageiroViewSet, MotoristaViewSet
 from . import views
-
-
 router = routers.DefaultRouter()
 router.register(r'passageiro', PassageiroViewSet, basename="Passageiro")
 router.register(r'motorista', MotoristaViewSet, basename="Motorista")
-
-
 urlpatterns = [
     path("", views.home, name='página inicial'),
     path("menu", views.menu, name='menu'),
@@ -29,6 +25,4 @@ urlpatterns = [
     path('rotas/visualizar', views.lista_rotas, name='lista_rotas'),
     path('rotas/atualizar_rota/<int:id>/', views.atualizar_rota, name='atualizar_rota'),
     path('rotas/deletar_rota/<int:id>/', views.deletar_rota, name='deletar_rota'),
-    path('api/', include(router.urls)),
-
-]
+    path('api/', include(router.urls)),]

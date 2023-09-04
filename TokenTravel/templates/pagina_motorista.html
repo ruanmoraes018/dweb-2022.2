@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block title %}Página do Motorista{% endblock %}
-
 {% block menu %}
 <div id="navbar">
     <div class="container">
@@ -36,15 +34,14 @@
         </nav>
     </div>
 </div>
-
 {% if exibir_turu %}
-<div class="container">
+<div class="containertutumotorista">
     <div class="row">
-        <div class="col mt-4">
+        <div class="col mt-12">
+            <p class="tutorial-title">Tutorial do Motorista</p>
             <img class="img-fluid img-desktop" src="{% static 'img/foto_pagina_motora.png' %}" alt="Imagem Responsiva">
         </div>
     </div>
 </div>
 {% endif %}
-
 {% endblock %}

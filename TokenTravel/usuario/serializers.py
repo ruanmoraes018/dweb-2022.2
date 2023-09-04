@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import Passageiro, Motorista, Custom
 from rolepermissions.roles import assign_role
-
 class MotoristaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Motorista
@@ -12,14 +11,11 @@ class MotoristaSerializer(serializers.ModelSerializer):
             'is_staff': {'read_only': False},
             'is_superuser': {'read_only': False},
             'user_permissions': {'read_only': True},
-            'groups': {'read_only': True},
-        }
-
+            'groups': {'read_only': True},}
     def create(self, validated_data):
         custom_data = {
             'email': validated_data['email'],
-            'username': validated_data['username']
-        }
+            'username': validated_data['username']}
         custom = Custom.objects.create(**custom_data)
         password = validated_data.pop('password')
         motorista = Motorista.objects.create(user=custom, **validated_data)
@@ -27,12 +23,8 @@ class MotoristaSerializer(serializers.ModelSerializer):
         motorista.set_password(password)
         custom.save()
         motorista.save()
-
         assign_role(motorista, 'motorista')
-
         return motorista
-
-
 class PassageiroSerializer(serializers.ModelSerializer):
     class Meta:
         model = Passageiro
@@ -43,16 +35,11 @@ class PassageiroSerializer(serializers.ModelSerializer):
             'is_staff': {'read_only': False},
             'is_superuser': {'read_only': False},
             'user_permissions': {'read_only': True},
-            'groups': {'read_only': True},
-        }
-
-      
-    # Metodo que quase funfou
+            'groups': {'read_only': True},}    
     def create(self, validated_data):
         custom_data = {
             'email': validated_data['email'],
-            'username': validated_data['username']
-        }
+            'username': validated_data['username']}
         custom = Custom.objects.create(**custom_data)
         password = validated_data.pop('password')
         passageiro = Passageiro.objects.create(user=custom, **validated_data)
@@ -60,7 +47,5 @@ class PassageiroSerializer(serializers.ModelSerializer):
         passageiro.set_password(password)
         custom.save()
         passageiro.save()
-
         assign_role(passageiro, 'passageiro')
-
         return passageiro

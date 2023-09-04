@@ -7,6 +7,4 @@ function validarTelefone() {
         alert("O número de telefone informado é inválido.");
         return false;
     } else {
-        return true;
-    }
-}
+        return true;}}

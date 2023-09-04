@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
-
 {% load static %}
 {% block title %}Menu{% endblock %}
 {% block menu %}
-
 <div id="navbar">
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light">
@@ -14,18 +12,24 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-lg-auto">
                     <li class="nav-item">
                         <form class="d-flex" action="{% url 'resultados0' %}" method="get" role="search">
-                            <input class="form-control form-control-sm me-2" type="text" placeholder="Origem"
-                                id="end_inicial" name="end_inicial" required>
-                            <input class="form-control form-control-sm me-2" type="text" placeholder="Destino"
-                                id="end_final" name="end_final" required>
+                            <div id="autocompleteOrigem">
+                                <input class="form-control form-control-sm me-2" type="text"
+                                    placeholder="Ex: Capitão Poço Pará" id="end_inicial" name="end_inicial" required>
+                                <ul class="autocomplete-result-list"></ul>
+                            </div>
+                            <div id="autocompleteDestino">
+                                <input class="form-control form-control-sm me-2" type="text"
+                                    placeholder="Ex: Capanema Pará" id="end_final" name="end_final" required>
+                                <ul class="autocomplete-result-list"></ul>
+                            </div>
                             <select name="dia_da_semana" class="form-control form-control-sm me-2" id="dia_da_semana"
                                 style="width: 110px;">
                                 <option value="domingo">Domingo</option>
+                                <option value="segunda">Segunda</option>
                                 <option value="terca">Terça-Feira</option>
                                 <option value="quarta">Quarta-Feira</option>
                                 <option value="quinta">Quinta-Feira</option>
@@ -59,58 +63,46 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'cadastro_passageiro' %}">Cadastrar</a>
+                        <a class="nav-link" href="{% url 'cadastro_passageiro' %}"><strong>Cadastrar</strong></a>
                     </li>
                 </ul>
             </div>
         </nav>
     </div>
 </div>
-
-
-
 {% if exibir_h3 %}
 {% block h3 %}
-<div class="container" id="fraseunica">
+<div class="container_boasvindas" id="fraseunica">
     Seja bem-vindo ao TokenTravel <br>
     Entre ou cadastre-se para acessar as funcionalidades <br>
     do seu guia de viagens!<br>
 </div>
-
 <section class="slider">
     <div class="slider-content">
-
         <input type="radio" name="btn-radio" id="radio1">
         <input type="radio" name="btn-radio" id="radio2">
         <input type="radio" name="btn-radio" id="radio3">
-
         <div class="slide-box primeiro">
             <img class="img-desktop" src="{% static 'img/TokenTravel Slide 1.png' %}" alt="slide 1">
         </div>
-
         <div class="slide-box">
             <img class="img-desktop" src="{% static 'img/TokenTravel Slide 2.png' %}" alt="slide 2">
         </div>
-
         <div class="slide-box">
             <img class="img-desktop" src="{% static 'img/TokenTravel Slide 3 suporte.png' %}" alt="slide 3">
         </div>
-
         <div class="nav-auto">
             <div class="auto-btn1"></div>
             <div class="auto-btn2"></div>
             <div class="auto-btn3"></div>
         </div>
-
         <div class="nav-manual">
             <label for="radio1" class="manual-btn"></label>
             <label for="radio2" class="manual-btn"></label>
             <label for="radio3" class="manual-btn"></label>
         </div>
-
     </div>
 </section>
-
 {% endblock %}
 {% endif %}
 {% endblock %}

@@ -2,11 +2,13 @@ from django.contrib.auth.backends import BaseBackend
 from django.contrib.auth import get_user_model
 from django.db.models import Q
 
+
 class PassageiroBackend(BaseBackend):
     def authenticate(self, request, email=None, password=None, **kwargs):
         UserModel = get_user_model()
         try:
-            user = UserModel.objects.get(Q(email=email) & Q(is_passageiro=True))
+            user = UserModel.objects.get(
+                Q(email=email) & Q(is_passageiro=True))
         except UserModel.DoesNotExist:
             return None
         if user.check_password(password):

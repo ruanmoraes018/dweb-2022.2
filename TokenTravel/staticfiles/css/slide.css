@@ -3,22 +3,22 @@ section.slider {
     width: 100%;
     height: auto;
     padding: 0 !important;
-    overflow: hidden;
+    overflow: hidden
 }
 
 .slider-content {
     width: 400%;
     height: auto;
-    display: flex;
+    display: flex
 }
 
 .slider-content img {
     max-width: 1300px;
-    width: 100%;
+    width: 100%
 }
 
 .slider-content input {
-    display: none;
+    display: none
 }
 
 .slide-box {
@@ -26,49 +26,46 @@ section.slider {
     height: auto;
     position: relative;
     text-align: center;
-    transition: 1s;
+    transition: 1s
 }
 
-.nav-manual,
-.nav-auto {
+.nav-auto,
+.nav-manual {
     position: absolute;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: center
 }
 
-.nav-manual .manual-btn,
-.nav-auto div {
-    border: 1px solid white;
+.nav-auto div,
+.nav-manual .manual-btn {
+    border: 1px solid #fff;
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
-    transition: 0.2s;
+    transition: .2s
 }
 
-.nav-manual .manual-btn:not(:last-child),
-.nav-auto div:not(:last-child) {
-    margin-right: 10px;
-}
-
-.nav-manual .manual-btn:hover {
-    background-color: blue;
+.nav-auto div:not(:last-child),
+.nav-manual .manual-btn:not(:last-child) {
+    margin-right: 10px
 }
 
 #radio1:checked~.nav-auto .auto-btn1,
 #radio2:checked~.nav-auto .auto-btn2,
-#radio3:checked~.nav-auto .auto-btn3 {
-    background-color: blue;
+#radio3:checked~.nav-auto .auto-btn3,
+.nav-manual .manual-btn:hover {
+    background-color: #00f
 }
 
 #radio1:checked~.primeiro {
-    margin-left: 0%;
+    margin-left: 0
 }
 
 #radio2:checked~.primeiro {
-    margin-left: -25%;
+    margin-left: -25%
 }
 
 #radio3:checked~.primeiro {
-    margin-left: -50%;
+    margin-left: -50%
 }

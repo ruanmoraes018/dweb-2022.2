@@ -1,128 +1,185 @@
-/*Área do quadrado do cadastro Usuário*/
+.botao-cadastro,
+.texto h2 {
+    color: #040c21;
+    position: absolute
+}
+
+.botao-cadastro,
+.botao-personalizado {
+    font-family: Roboto;
+    font-weight: 700;
+    text-decoration: none
+}
 
 .card.card-body {
-    width: 300px;
+    width: 300px
 }
 
-@media (max-width: 576px) {
+@media (max-width:576px) {
     .card.card-body {
         width: 200px;
-        /* Largura para telas menores */
         margin-left: auto;
-        margin-right: auto;
+        margin-right: auto
     }
-}
 
-/* Media query para telas menores */
-@media (max-width: 576px) {
     .cad_motorista {
         max-width: 80%;
-        /* Define uma largura menor para telas menores */
         margin-left: auto;
-        margin-right: auto;
+        margin-right: auto
     }
 }
 
-.container-cadastro_pass {
-    margin-top: 4rem;
-    background-color: #f8f9fa;
-    max-width: 60rem;
-    /* Ajuste o valor conforme necessário */
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 0.5rem;
-}
-
+.container-cadastro_pass,
 .container_cad_motorista {
     margin-top: 4rem;
     background-color: #f8f9fa;
     max-width: 60rem;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 0.5rem;
+    border-radius: .5rem
 }
 
 .botao-cadastro {
     transform: translateX(-50%);
-    font-family: Roboto;
     font-size: 25px;
-    font-weight: bold;
-    color: #040c21;
-    text-decoration: none;
     padding: 10px 25px;
-    background: white;
-    position: absolute;
+    background: #fff;
     top: 75%;
     left: 60%;
-    border-radius: 15px;
+    border-radius: 15px
 }
 
 .texto h2 {
-    color: #040c21;
     font-family: Roboto;
     font-size: 40px;
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
+    text-align: center
 }
 
 .cadastro-fonte {
-    font-family: Roboto;
+    font-family: Roboto
 }
 
-/* Texto do Span de Obrigatório */
 .cadastro-informativo {
-    color: #c2182b;
+    color: #c2182b
 }
 
-
-.botao-atualizarrota, .botao-cadastrarrota, .botao-dellrota {
-    background-color: #4CAF50;
-    color: white;
+.botao-atualizarrota,
+.botao-cadastrarrota,
+.botao-dellrota {
+    background-color: #4caf50;
+    color: #fff;
     padding: 10px 20px;
     font-size: 15px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color .3s
 }
 
-.botao-atualizarrota:hover, .botao-cadastrarrota:hover, .botao-dellrota:hover {
+.botao-atualizarrota:hover,
+.botao-cadastrarrota:hover,
+.botao-dellrota:hover {
     background-color: #882121;
-    transform: scale(1.05);
+    transform: scale(1.05)
 }
 
-.botao-cancelaratualiza, .botao-cancelarcadastrar, .botao-dellcancell {
+.botao-cancelaratualiza,
+.botao-cancelarcadastrar,
+.botao-dellcancell {
     background-color: #8c67f1;
-    transform: scale(1.05);
+    transform: scale(1.05)
 }
 
+.acao_dell:hover,
 .acao_editar:hover {
     background-color: #e67540;
-    transform: scale(1.05);
+    transform: scale(1.05)
 }
-
-.acao_dell:hover {
-    background-color: #e67540;
-    transform: scale(1.05);
-}
-
 
 .botao-personalizado {
-    font-family: Roboto;
-    font-weight: bold;
-    color: white;
+    color: #fff;
     text-transform: uppercase;
-    text-decoration: none;
     background: #2e0dc2;
-    border-radius: 15px;
+    border-radius: 15px
 }
 
 .botao-personalizado:hover {
     background: #e44202;
-    transition: 0.7s all;
-    color: rgb(255, 255, 255);
-    box-shadow: 1px 1px 1px;
+    transition: .7s;
+    color: #fff;
+    box-shadow: 1px 1px 1px
+}
+
+
+/* Estilo para o container "containertutumotorista" */
+.containertutumotorista {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    margin-top: 25px;
+}
+
+.containertutumotorista .img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+
+}
+
+.containertutumotorista .tutorial-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(6, 3, 172, 0.308);
+    padding: 8px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+.containertutumotorista .tutorial-title:hover {
+    transform: scale(0.9);
+}
+
+/* Estilo para o container "containertutupassageiro" */
+.containertutupassageiro {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    margin-top: 25px;
+}
+
+.containertutupassageiro .img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+
+}
+
+.containertutupassageiro .tutorial-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(10, 116, 27, 0.3);
+    padding: 8px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+.containertutupassageiro .tutorial-title:hover {
+    transform: scale(0.9);
 }

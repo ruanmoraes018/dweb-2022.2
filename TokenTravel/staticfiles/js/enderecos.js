@@ -2,9 +2,7 @@ function listen() {
     const options = {
         method: "GET",
         mode: "cors",
-        caches: "default"
-    }
-
+        caches: "default"}
     const cep = document.getElementById("cep")
     cep.addEventListener("blur", (e) => {
         let Cep = document.getElementById("cep").value;
@@ -16,30 +14,16 @@ function listen() {
                 document.getElementById("logradouro").value = data.logradouro;
                 document.getElementById("bairro").value = data.bairro;
                 document.getElementById("cidade").value = data.localidade;
-                document.getElementById("estado").value = data.uf;
-
-            })
-        })
-    })
-
+                document.getElementById("estado").value = data.uf;})})})
     let logradouro = document.getElementById("logradouro").value;
     let bairro = document.getElementById("bairro").value;
     let localidade = document.getElementById("cidade").value;
     let uf = document.getElementById("estado").value;
-
     let json = {
         "logradouro": logradouro,
         "bairro": bairro,
         "cidade": localidade,
-        "estado": uf,
-
-    }
-    console.log(json)
-}
-function init() {
-    // Chama a função "listen" após o arquivo "enderecos.js" ser carregado
-    listen();
-}
-document.addEventListener("DOMContentLoaded", function() {
-    listen();
-});
+        "estado": uf,}
+    console.log(json)}
+function init() {listen();}
+document.addEventListener("DOMContentLoaded", function() {listen();});
