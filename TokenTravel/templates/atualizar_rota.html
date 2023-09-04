@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <label for="preco" class="form-label">Preço:<span
+                            <label for="preco" class "form-label">Preço:<span
                                     class="form-text cadastro-informativo">*</span></label>
                             <div class="col-10 mx-auto">
                                 <input type="number" class="form-control" id="preco" name="preco"
@@ -53,10 +53,13 @@
                             <label for="tipo_veiculo" class="form-label">Tipo de Veículo:<span
                                     class="form-text cadastro-informativo">*</span></label>
                             <div class="col-10 text-start">
-                                <input type="text" class="form-control" name="tipo_veiculo" id="tipo_veiculo" required>
+                                <select class="form-control" name="tipo_veiculo" id="tipo_veiculo" required>
+                                    <option value="Táxi">Táxi</option>
+                                    <option value="Van">Van</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="col-auto">
+                        <div class="col-12">
                             <label for="{{ form.dias_semana.id_for_label }}" class="form-label">Dias da semana:<span
                                     class="form-text cadastro-informativo">*</span></label>
                             <div class="col-10 text-start">
@@ -70,7 +73,24 @@
                         <div class="modal-footer">
                             <a href="{% url 'lista_rotas' %}"
                                 class="botao-cancelaratualiza btn btn-secondary">Cancelar</a>--
-                            <button type="submit" class="botao-atualizarrota btn btn-success">Atualizar</button>
+                            <button type="button" class="botao-atualizarrota btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" disabled>Atualizar</button>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmação!</h1>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Você confirma a ALTERAÇÃO DA ROTA?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Sim</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -78,4 +98,45 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('form');
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const submitButton = document.querySelector('.botao-atualizarrota');
+
+        function checkRequiredFields() {
+            // Verifique se pelo menos um checkbox está marcado.
+            const isAtLeastOneCheckboxChecked = [...checkboxes].some(checkbox => checkbox.checked);
+            
+            // Verifique se os campos obrigatórios estão preenchidos.
+            const isRequiredFieldsFilled = form.origem.value.trim() !== '' && 
+                                          form.destino.value.trim() !== '' &&
+                                          form.preco.value.trim() !== '' &&
+                                          form.horario_ida.value.trim() !== '' &&
+                                          form.tipo_veiculo.value.trim() !== '';
+            
+            return isAtLeastOneCheckboxChecked && isRequiredFieldsFilled;
+        }
+
+        // Adicione um evento change aos checkboxes e campos obrigatórios.
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateSubmitButton);
+        });
+        form.origem.addEventListener('input', updateSubmitButton);
+        form.destino.addEventListener('input', updateSubmitButton);
+        form.preco.addEventListener('input', updateSubmitButton);
+        form.horario_ida.addEventListener('input', updateSubmitButton);
+        form.tipo_veiculo.addEventListener('input', updateSubmitButton);
+
+        // Verifique o estado dos campos e checkboxes quando o formulário for carregado.
+        updateSubmitButton();
+
+        function updateSubmitButton() {
+            const isFormValid = checkRequiredFields();
+            submitButton.disabled = !isFormValid;
+        }
+    });
+</script>
+
 {% endblock %}

@@ -7,7 +7,7 @@
 <div class="container_cad_motorista">
     <div class="text-center">
         <h2 class="texto">Cadastro de Motoristas</h2>
-        <form class="row gy-2 gx-3 align-items-center" method="POST" action="{% url 'cadastro_motorista' %}">
+        <form class="row gy-2 gx-3 align-items-center" method="POST" action="{% url 'cadastro_motorista' %}" id="cadastroForm">
             {% csrf_token %}
             <span class="form-text cadastro-informativo">*: Obrigatório.</span>
             <div class="col-md-6">
@@ -129,7 +129,7 @@
                 </div>
             </div>            
             <div class="col-auto mx-auto">
-                <button type="submit" onclick="validarSenha(); verificarCPF(event); validarTelefone()" id="liveAlertBtn" value="cadastrar" class="botao-login btn btn-primary" data-bs-toggle="modal" data-bs-target="#loadingModal">
+                <button type="submit" id="cadastrarBtn" class="botao-login btn btn-primary" data-bs-toggle="modal" data-bs-target="#loadingModal" disabled>
                     Cadastrar
                 </button>
             </div>
@@ -147,4 +147,58 @@
         </form>
     </div>
 </div>
+<script>
+    function verificarCamposPreenchidos() {
+        const nomeCompleto = document.getElementById('nome_completo').value;
+        const cpf = document.getElementById('cpf').value;
+        const telefone = document.getElementById('telefone').value;
+        const cnh = document.getElementById('cnh').value;
+        const placa = document.getElementById('placa').value;
+        const renavam = document.getElementById('renavam').value;
+        const chassi = document.getElementById('chassi').value;
+        const cep = document.getElementById('cep').value;
+        const logradouro = document.getElementById('logradouro').value;
+        const numeroResidencia = document.getElementById('numero_residencia').value;
+        const bairro = document.getElementById('bairro').value;
+        const cidade = document.getElementById('cidade').value;
+        const estado = document.getElementById('estado').value;
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('password').value;
+        const confirmarSenha = document.getElementById('confirmar_senha').value;
+        const concordouTermos = document.getElementById('autoSizingCheck').checked;
+
+        const botaoCadastrar = document.getElementById('cadastrarBtn');
+        
+        if (
+            nomeCompleto &&
+            cpf &&
+            telefone &&
+            cnh &&
+            placa &&
+            renavam &&
+            chassi &&
+            cep &&
+            logradouro &&
+            numeroResidencia &&
+            bairro &&
+            cidade &&
+            estado &&
+            username &&
+            email &&
+            senha &&
+            confirmarSenha &&
+            concordouTermos
+        ) {
+            botaoCadastrar.disabled = false;
+        } else {
+            botaoCadastrar.disabled = true;
+        }
+    }
+
+    const campos = document.querySelectorAll('input[required], select');
+    campos.forEach(campo => {
+        campo.addEventListener('input', verificarCamposPreenchidos);
+    });
+</script>
 {% endblock %}

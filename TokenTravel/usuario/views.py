@@ -126,10 +126,9 @@ def login_motorista(request):
                 login(request, user)
                 return redirect(pagina_motorista)
             else:
-                messages.error(
-                    request, 'Este usuário não é um motorista cadastrado.')
+                messages.add_message(request, messages.WARNING, 'Este usuário não é um motorista cadastrado.')
         else:
-            messages.error(request, 'Usuário ou senha incorretos.')
+            messages.add_message(request, messages.ERROR, 'Email e senha inválidos.')
     return render(request, 'login_motorista.html')
 
 
@@ -146,10 +145,9 @@ def login_passageiro(request):
                 login(request, passageiro)
                 return redirect(pagina_passageiro)
             else:
-                messages.error(
-                    request, 'Este usuário não é um passageiro cadastrado.')
+                messages.add_message(request, messages.WARNING, 'Este usuário não é um passageiro cadastrado.')
         else:
-            messages.error(request, 'Usuário ou senha incorretos.')
+            messages.add_message(request, messages.ERROR, 'Email e senha inválidos.')
     return render(request, 'login_usuario.html')
 
 

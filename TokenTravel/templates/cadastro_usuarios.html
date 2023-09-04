@@ -18,7 +18,7 @@
 <div class="container-cadastro_pass">
     <div class="text-center">
         <h2 class="texto">Cadastro de Passageiros</h2>
-        <form class="row gy-2 gx-3 align-items-center" method="POST" action="{% url 'cadastro_passageiro' %}">
+        <form class="row gy-2 gx-3 align-items-center" method="POST" action="{% url 'cadastro_passageiro' %}" id="cadastroForm">
             {% csrf_token %}
             <span class="form-text cadastro-informativo">*: Obrigatório.</span>
             <div class="col-md-6">
@@ -114,9 +114,9 @@
                         </label>
                     </div>
                 </div>
-            </div>            
+            </div>
             <div class="col-auto mx-auto">
-                <button type="submit" onclick="validarSenha(); verificarCPF(event); validarTelefone()" id="liveAlertBtn" value="cadastrar" class="botao-login btn btn-primary" data-bs-toggle="modal" data-bs-target="#loadingModal">
+                <button type="submit" id="cadastrarBtn" class="botao-login btn btn-primary" data-bs-toggle="modal" data-bs-target="#loadingModal" disabled>
                     Cadastrar
                 </button>
             </div>
@@ -134,4 +134,52 @@
         </form>
     </div>
 </div>
+<script>
+    // Função para verificar se todos os campos obrigatórios estão preenchidos e o checkbox está marcado
+    function verificarCamposPreenchidos() {
+        const nomeCompleto = document.getElementById('nome_completo').value;
+        const cpf = document.getElementById('cpf').value;
+        const telefone = document.getElementById('telefone').value;
+        const cep = document.getElementById('cep').value;
+        const logradouro = document.getElementById('logradouro').value;
+        const numeroResidencia = document.getElementById('numero_residencia').value;
+        const bairro = document.getElementById('bairro').value;
+        const cidade = document.getElementById('cidade').value;
+        const estado = document.getElementById('estado').value;
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('password').value;
+        const confirmarSenha = document.getElementById('confirmar_senha').value;
+        const concordouTermos = document.getElementById('autoSizingCheck').checked;
+
+        const botaoCadastrar = document.getElementById('cadastrarBtn');
+        
+        if (
+            nomeCompleto &&
+            cpf &&
+            telefone &&
+            cep &&
+            logradouro &&
+            numeroResidencia &&
+            bairro &&
+            cidade &&
+            estado &&
+            username &&
+            email &&
+            senha &&
+            confirmarSenha &&
+            concordouTermos
+        ) {
+            botaoCadastrar.disabled = false;
+        } else {
+            botaoCadastrar.disabled = true;
+        }
+    }
+
+    // Adicione ouvintes de eventos para cada campo do formulário
+    const campos = document.querySelectorAll('input[required], select');
+    campos.forEach(campo => {
+        campo.addEventListener('input', verificarCamposPreenchidos);
+    });
+</script>
 {% endblock %}

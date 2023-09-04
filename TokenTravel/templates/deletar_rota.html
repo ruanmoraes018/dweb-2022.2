@@ -9,7 +9,6 @@
       <p>Você está prestes a deletar a rota: <br>
         Título: <strong>{{ rota.origem }} - {{ rota.destino }}</strong> <br>
         Ida: <strong>{{ rota.horario_ida }}</strong> <br>
-        Volta: <strong>{{ rota.horario_volta }}</strong> <br>
         Preço: <strong>{{ rota.preco }}</strong> <br>
         Dias da semana: 
         <strong>
@@ -24,8 +23,8 @@
         <br><br>
         Tem certeza que deseja deletar esta rota?
       </p>
-      <a href="{% url 'lista_rotas' %}" class="botao-dellcancell btn btn-secondary">Cancelar</a>
-      <button type="submit" name="confirmar" class="botao-dellrota btn btn-danger">Confirmar</button>
+      <a href="{% url 'lista_rotas' %}" class="botao-dellcancell btn btn-secondary">Não</a>
+      <button type="submit" name="confirmar" class="botao-dellrota btn btn-danger ml-auto">Sim</button>
     </form>
   </div>
 </div>
