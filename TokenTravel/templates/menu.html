@@ -18,12 +18,12 @@
                         <form class="d-flex" action="{% url 'resultados0' %}" method="get" role="search">
                             <div id="autocompleteOrigem">
                                 <input class="form-control form-control-sm me-2" type="text"
-                                    placeholder="Ex: Capitão Poço Pará" id="end_inicial" name="end_inicial" required>
+                                    placeholder="Ex: Capitão Poço, Pará, Brasil" id="end_inicial" name="end_inicial" required>
                                 <ul class="autocomplete-result-list"></ul>
                             </div>
                             <div id="autocompleteDestino">
                                 <input class="form-control form-control-sm me-2" type="text"
-                                    placeholder="Ex: Capanema Pará" id="end_final" name="end_final" required>
+                                    placeholder="Ex: Capanema, Pará, Brasil" id="end_final" name="end_final" required>
                                 <ul class="autocomplete-result-list"></ul>
                             </div>
                             <select name="dia_da_semana" class="form-control form-control-sm me-2" id="dia_da_semana"
@@ -77,32 +77,35 @@
     Entre ou cadastre-se para acessar as funcionalidades <br>
     do seu guia de viagens!<br>
 </div>
-<section class="slider">
-    <div class="slider-content">
-        <input type="radio" name="btn-radio" id="radio1">
-        <input type="radio" name="btn-radio" id="radio2">
-        <input type="radio" name="btn-radio" id="radio3">
-        <div class="slide-box primeiro">
-            <img class="img-desktop" src="{% static 'img/TokenTravel Slide 1.png' %}" alt="slide 1">
+
+<div class="container">
+    <section class="slider">
+        <div class="slider-content">
+            <input type="radio" name="btn-radio" id="radio1">
+            <input type="radio" name="btn-radio" id="radio2">
+            <input type="radio" name="btn-radio" id="radio3">
+            <div class="slide-box primeiro">
+                <img class="img-desktop" src="{% static 'img/TokenTravel Slide 1.png' %}" alt="slide 1">
+            </div>
+            <div class="slide-box">
+                <img class="img-desktop" src="{% static 'img/TokenTravel Slide 2.png' %}" alt="slide 2">
+            </div>
+            <div class="slide-box">
+                <img class="img-desktop" src="{% static 'img/TokenTravel Slide 3 suporte.png' %}" alt="slide 3">
+            </div>
+            <div class="nav-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+            </div>
+            <div class="nav-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+            </div>
         </div>
-        <div class="slide-box">
-            <img class="img-desktop" src="{% static 'img/TokenTravel Slide 2.png' %}" alt="slide 2">
-        </div>
-        <div class="slide-box">
-            <img class="img-desktop" src="{% static 'img/TokenTravel Slide 3 suporte.png' %}" alt="slide 3">
-        </div>
-        <div class="nav-auto">
-            <div class="auto-btn1"></div>
-            <div class="auto-btn2"></div>
-            <div class="auto-btn3"></div>
-        </div>
-        <div class="nav-manual">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 {% endblock %}
 {% endif %}
 {% endblock %}

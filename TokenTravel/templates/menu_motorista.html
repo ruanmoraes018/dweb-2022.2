@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Meus Dados{% endblock %}
 {% block body %}
-<div class="container mt-5 bg-white p-4 rounded text-center">
+<div class="container-menu mt-5 bg-white p-4 rounded text-center">
     <h1 class="mb-5">Perfil do Motorista</h1>
     <h2 class="mb-4">Dados Pessoais</h2>
     <div class="row">
@@ -15,8 +15,8 @@
             <input type="text" class="form-control" id="cpf" value="{{ motorista.cpf }}" readonly>
         </div>
         <div class="col-md-6 mb-3">
-            <label for="endereco" class="form-label">Endereço:</label>
-            <input type="text" class="form-control" id="endereco" value="{{ motorista.logradouro }}" readonly>
+            <label for="logradouro" class="form-label">Endereço:</label>
+            <input type="text" class="form-control" id="logradouro" value="{{ motorista.logradouro }}" readonly>
         </div>
         <div class="col-md-6 mb-3">
             <label for="telefone" class="form-label">Telefone:</label>

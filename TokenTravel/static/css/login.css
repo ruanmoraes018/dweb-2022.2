@@ -7,10 +7,20 @@
     margin-top: 4rem;
     background-color: #f8f9fa;
     width: 100%;
-    max-width: 30rem;
+    max-width: 25rem;
     border-radius: .5rem;
     margin-left: auto;
     margin-right: auto
+}
+
+/* Adicione isso ao seu arquivo CSS ou no estilo no próprio HTML */
+.container-estreito {
+    max-width: 800px; /* ou a largura desejada em pixels ou qualquer outra unidade */
+    margin: 0 auto; /* centralizar o container */
+}
+.container-menu {
+    max-width: 800px; /* ou a largura desejada em pixels ou qualquer outra unidade */
+    margin: 0 auto; /* centralizar o container */
 }
 
 .container_login_motorista p,

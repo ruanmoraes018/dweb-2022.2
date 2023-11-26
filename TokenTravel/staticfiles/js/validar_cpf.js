@@ -1,23 +1,35 @@
-function validar_cpf(cpf) {
-    cpf = cpf.split('').filter(char => /\d/.test(char)).join('');
-    if (cpf.length != 11) {return false;}
-    if (cpf == cpf[0].repeat(11)) {return false;}
-    soma = 0
-    for (var i = 0; i < 9; i++) {soma += parseInt(cpf[i]) * (10 - i);}
-    resto = (soma * 10) % 11
-    if (resto == 10 || resto == parseInt(cpf[9])) {
-    } else {return false;}
-    soma = 0
-    for (var i = 0; i < 10; i++) {soma += parseInt(cpf[i]) * (11 - i);}
-    resto = (soma * 10) % 11
-    if (resto == 10 || resto == parseInt(cpf[10])) {
-    } else {return false;}
-    cpf_formatado = cpf.slice(0, 3) + '.' + cpf.slice(3, 6) + '.' + cpf.slice(6, 9) + '-' + cpf.slice(9, 11);
-    return cpf_formatado;}
-function verificarCPF(event) {
-    var cpf = document.getElementById("cpf").value;
-    var cpf_validado = validar_cpf(cpf)
-    if (!cpf_validado) {
-        alert("CPF inválido!");
-        event.preventDefault();
-    } else {document.getElementById("cpf").value = cpf_validado;}}
+var alertaCPFExibido = false;
+
+function validarCPF() {
+  var cpf = document.getElementById('cpf').value;
+  cpf = cpf.replace(/\D/g, ''); // Remove caracteres não numéricos
+
+  if (cpf.length === 11 && verificaSomaCPF(cpf) && !alertaCPFExibido) {
+    alertaCPFExibido = false;
+  } else if (cpf.length === 0 && !alertaCPFExibido) {
+    alert('Insira o CPF!');
+    alertaCPFExibido = true;
+  } else if (cpf.length < 11 || !verificaSomaCPF(cpf)) {
+    alert('CPF inválido!');
+    alertaCPFExibido = true; // Redefinir a variável se o CPF for editado
+  }
+}
+
+function verificaSomaCPF(cpf) {
+  cpf = cpf.replace(/\D/g, ''); // Remova caracteres não numéricos novamente
+
+  var soma = 0;
+  for (var i = 0; i < 9; i++) {
+    soma += parseInt(cpf.charAt(i)) * (10 - i);
+  }
+  var digitoVerificador1 = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+
+  soma = 0;
+  for (var i = 0; i < 10; i++) {
+    soma += parseInt(cpf.charAt(i)) * (11 - i);
+  }
+  var digitoVerificador2 = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+
+  return digitoVerificador1 === parseInt(cpf.charAt(9)) &&
+         digitoVerificador2 === parseInt(cpf.charAt(10));
+}

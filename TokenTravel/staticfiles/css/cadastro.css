@@ -33,7 +33,7 @@
 .container_cad_motorista {
     margin-top: 4rem;
     background-color: #f8f9fa;
-    max-width: 60rem;
+    max-width: 30rem;
     margin-left: auto;
     margin-right: auto;
     border-radius: .5rem
@@ -182,4 +182,28 @@
 
 .containertutupassageiro .tutorial-title:hover {
     transform: scale(0.9);
+}
+#principal {
+    display: block;
+}
+
+#endereco, #credenciais {
+    display: none;
+}
+
+.btn-ativo,
+    .btn-ativo:hover {
+        background-color: #ffA500; /* Cor laranja (substitua pelo seu valor desejado) */
+        color: #fff; /* Cor do texto (substitua pelo seu valor desejado) */
+    }
+
+    .btn-inativo:hover {
+        background-color: #fff; /* Cor de fundo padrão ao passar o mouse (substitua pelo seu valor desejado) */
+        color: #007bff; /* Cor do texto padrão ao passar o mouse (substitua pelo seu valor desejado) */
+    }
+
+.formatted-cpf {
+    font-family: Arial, sans-serif;
+    color: green;
+    /* Adicione outros estilos conforme necessário */
 }
