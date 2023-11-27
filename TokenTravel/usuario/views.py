@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Motorista, Passageiro, Custom, RotaViagem
 from django.contrib import messages
-from django.http.response import HttpResponse
+import re
 from rolepermissions.roles import assign_role
 from django.contrib.auth.hashers import make_password
 import django
@@ -385,6 +385,12 @@ def rotas_por_motorista(request, motorista_id):
         return render(request, 'erro.html')
 
 
+def formatar_telefone(numero):
+    # Remove caracteres não numéricos
+    numero_formatado = re.sub(r'\D', '', numero)
+    return numero_formatado
+
+
 @login_required(login_url='login/passageiro')
 def resultados1(request):
     origem = request.GET.get('end_inicial')
@@ -406,8 +412,8 @@ def resultados1(request):
         hora_partida = rota.horario_ida
         valor_rota = rota.preco
         tipo_veiculo = rota.tipo_veiculo
-        mensagem = f"Olá, {nome_motorista}. Me chamo {nome_passageiro}, gostaria de saber mais informações e meios de pagamento da rota: {nome_origem}/{nome_destino}, saindo às {hora_partida} e valor de R$ {valor_rota} de {tipo_veiculo}! Esta mensagem foi criada através da Aplicação TokenTravel!"
-        phone_number = rota.motorista.telefone
+        mensagem = f"Olá, {nome_motorista}. Me chamo {nome_passageiro}, gostaria de saber mais informações e meios de pagamento da rota: {nome_origem}/{nome_destino}, saindo às {hora_partida} e valor de R$ {valor_rota} de {tipo_veiculo}! _Esta mensagem foi criada através da Aplicação TokenTravel!_"
+        phone_number = formatar_telefone(rota.motorista.telefone)
         lat_origem, lng_origem = obter_coordenadas(origem, api_key)
         lat_destino, lng_destino = obter_coordenadas(destino, api_key)
         distancia_km, duracao_horas, duracao_minutos = calcular_rota(
