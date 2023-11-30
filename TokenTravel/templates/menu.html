@@ -58,12 +58,12 @@
                             Login
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'login_passageiro' %}">Para passageiros</a></li>
-                            <li><a class="dropdown-item" href="{% url 'login_motorista' %}">Para motoristas</a></li>
+                            <li><a class="dropdown-item" href="{% url 'login_passageiro' %}">P/ Passageiros</a></li>
+                            <li><a class="dropdown-item" href="{% url 'login_motorista' %}">P/ Motoristas</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'cadastro_passageiro' %}"><strong>Cadastrar</strong></a>
+                        <a class="nav-link" href="{% url 'cadastro_passageiro' %}">Cadastrar</a>
                     </li>
                 </ul>
             </div>
@@ -78,34 +78,33 @@
     do seu guia de viagens!<br>
 </div>
 
-<div class="container">
-    <section class="slider">
-        <div class="slider-content">
-            <input type="radio" name="btn-radio" id="radio1">
-            <input type="radio" name="btn-radio" id="radio2">
-            <input type="radio" name="btn-radio" id="radio3">
-            <div class="slide-box primeiro">
-                <img class="img-desktop" src="{% static 'img/TokenTravel Slide 1.png' %}" alt="slide 1">
-            </div>
-            <div class="slide-box">
-                <img class="img-desktop" src="{% static 'img/TokenTravel Slide 2.png' %}" alt="slide 2">
-            </div>
-            <div class="slide-box">
-                <img class="img-desktop" src="{% static 'img/TokenTravel Slide 3 suporte.png' %}" alt="slide 3">
-            </div>
-            <div class="nav-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-                <div class="auto-btn3"></div>
-            </div>
-            <div class="nav-manual">
-                <label for="radio1" class="manual-btn"></label>
-                <label for="radio2" class="manual-btn"></label>
-                <label for="radio3" class="manual-btn"></label>
-            </div>
+<section class="slider">
+    <div class="slider-content">
+        <input type="radio" name="btn-radio" id="radio1">
+        <input type="radio" name="btn-radio" id="radio2">
+        <input type="radio" name="btn-radio" id="radio3">
+        <div class="slide-box primeiro">
+            <img class="img-desktop" src="{% static 'img/TokenTravel Slide 1.png' %}" alt="slide 1">
         </div>
-    </section>
-</div>
+        <div class="slide-box">
+            <img class="img-desktop" src="{% static 'img/TokenTravel Slide 2.png' %}" alt="slide 2">
+        </div>
+        <div class="slide-box">
+            <img class="img-desktop" src="{% static 'img/TokenTravel Slide 3 suporte.png' %}" alt="slide 3">
+        </div>
+        <div class="nav-auto">
+            <div class="auto-btn1"></div>
+            <div class="auto-btn2"></div>
+            <div class="auto-btn3"></div>
+        </div>
+        <div class="nav-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
 {% endif %}
 {% endblock %}

@@ -25,4 +25,6 @@ urlpatterns = [
     path('rotas/visualizar', views.lista_rotas, name='lista_rotas'),
     path('rotas/atualizar_rota/<int:id>/', views.atualizar_rota, name='atualizar_rota'),
     path('rotas/deletar_rota/<int:id>/', views.deletar_rota, name='deletar_rota'),
-    path('api/', include(router.urls)),]
+    path('api/', include(router.urls)),
+    path('termos_uso/', views.termos, name='termos'),
+]

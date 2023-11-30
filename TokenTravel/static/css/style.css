@@ -101,6 +101,7 @@ form#buscador button {
 .navbar .nav-link {
     transition: color .2s ease-in-out;
     color: #000;
+    font-family: Times;
     position: relative;
     font-size: 18px
 }

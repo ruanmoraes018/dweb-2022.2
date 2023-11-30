@@ -259,6 +259,10 @@ def home(request):
     return render(request, 'home.html')
 
 
+def termos(request):
+    return render(request, 'Termos de Uso.html')
+
+
 def menu(request):
     exibir_h3 = True
     return render(request, 'menu.html', {'exibir_h3': exibir_h3})
