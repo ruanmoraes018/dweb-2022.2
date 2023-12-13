@@ -3,11 +3,24 @@ from django.core.validators import RegexValidator
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, AbstractUser, Group, Permission
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.core.exceptions import ValidationError
 
 
 class Custom(AbstractUser):
     is_motorista = models.BooleanField(default=False)
     is_passageiro = models.BooleanField(default=False)
+
+    def save(self, *args, **kwargs):
+        # Verificar se o username já existe
+        if Custom.objects.filter(username=self.username).exclude(pk=self.pk).exists():
+            raise ValidationError('Nome de usuário já existe.')
+
+        # Verificar se o email já existe
+        if Custom.objects.filter(email=self.email).exclude(pk=self.pk).exists():
+            raise ValidationError('E-mail já cadastrado.')
+
+        super().save(*args, **kwargs)
+
 
 
 class PassageiroManager(BaseUserManager):

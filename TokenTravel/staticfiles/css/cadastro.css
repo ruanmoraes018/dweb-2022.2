@@ -207,3 +207,10 @@
     color: green;
     /* Adicione outros estilos conforme necessário */
 }
+
+.custom-alert {
+    width: 100%; /* Ou qualquer largura desejada */
+    max-width: 100%; /* Para garantir que não ultrapasse o container */
+    margin-right: auto;
+    margin-left: auto;
+}

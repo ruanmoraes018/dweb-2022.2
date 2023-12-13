@@ -11,106 +11,148 @@ from django.contrib import messages
 import re
 from rolepermissions.roles import assign_role
 from django.contrib.auth.hashers import make_password
+from django.core.exceptions import ValidationError
 import django
 django.setup()
 
 
 def cadastro_motorista(request):
-    password = request.POST.get('senha')
-    confirmar_senha = request.POST.get('confirmar_senha')
-    if request.method == 'POST' and password == confirmar_senha:
+    if request.method == 'POST':
         username = request.POST.get('username')
-        nome_completo = request.POST.get('nome_completo')
-        nome_preferencia = request.POST.get('nome_preferencia')
-        cnh = request.POST.get('cnh')
-        cpf = request.POST.get('cpf')
-        telefone = request.POST.get('telefone')
         email = request.POST.get('email')
-        placa = request.POST.get('placa')
-        renavam = request.POST.get('renavam')
-        chassi = request.POST.get('chassi')
-        cep = request.POST.get('cep')
-        logradouro = request.POST.get('logradouro')
-        numero_residencia = request.POST.get('numero_residencia')
-        bairro = request.POST.get('bairro')
-        cidade = request.POST.get('cidade')
-        estado = request.POST.get('estado')
+        cpf = request.POST.get('cpf')
+
+        # Verificar se o nome de usuário já existe
+        if Custom.objects.filter(username=username).exists():
+            messages.error(request, 'Nome de usuário já existe!')
+            return redirect('/cadastro/motorista', **request.POST.dict())
+
+        # Verificar se o e-mail já existe
+        if Custom.objects.filter(email=email).exists():
+            messages.error(request, 'E-mail já cadastrado!')
+            return redirect('/cadastro/motorista', **request.POST.dict())
+
+        # Verificar se o CPF já existe
+        if Motorista.objects.filter(cpf=cpf).exists():
+            messages.error(request, 'CPF já cadastrado!')
+            return redirect('/cadastro/motorista', **request.POST.dict())
+
         password = request.POST.get('senha')
-        novo_user = Custom.objects.create_user(
-            username=username,
-            email=email,
-            password=password,
-            is_motorista=True)
-        novo_motorista = Motorista(
-            user=novo_user,
-            username=username,
-            email=email,
-            password=make_password(password),
-            nome_completo=nome_completo,
-            nome_preferencia=nome_preferencia,
-            cnh=cnh,
-            cpf=cpf,
-            telefone=telefone,
-            placa=placa,
-            renavam=renavam,
-            chassi=chassi,
-            cep=cep,
-            logradouro=logradouro,
-            numero_residencia=numero_residencia,
-            bairro=bairro,
-            cidade=cidade,
-            estado=estado,)
-        novo_motorista.save()
-        assign_role(novo_motorista, 'motorista')
-        messages.success(request, 'Cadastro realizado com sucesso!')
-        return redirect(login_motorista)
-    else:
-        return render(request, 'cadastro_motoristas.html')
+        confirmar_senha = request.POST.get('confirmar_senha')
+
+        if password == confirmar_senha:
+            try:
+                # Tenta criar um novo usuário
+                novo_user = Custom.objects.create_user(
+                    username=username,
+                    email=email,
+                    password=password,
+                    is_motorista=True
+                )
+
+                # Se o usuário foi criado com sucesso, continue com o cadastro do motorista
+                novo_motorista = Motorista(
+                    user=novo_user,
+                    username=username,
+                    email=email,
+                    password=make_password(password),
+                    nome_completo=request.POST.get('nome_completo'),
+                    nome_preferencia=request.POST.get('nome_preferencia'),
+                    cnh=request.POST.get('cnh'),
+                    cpf=cpf,
+                    telefone=request.POST.get('telefone'),
+                    placa=request.POST.get('placa'),
+                    renavam=request.POST.get('renavam'),
+                    chassi=request.POST.get('chassi'),
+                    cep=request.POST.get('cep'),
+                    logradouro=request.POST.get('logradouro'),
+                    numero_residencia=request.POST.get('numero_residencia'),
+                    bairro=request.POST.get('bairro'),
+                    cidade=request.POST.get('cidade'),
+                    estado=request.POST.get('estado')
+                )
+                novo_motorista.save()
+                assign_role(novo_motorista, 'motorista')
+                messages.success(request, 'Cadastro realizado com sucesso!')
+                return redirect('login_motorista')
+
+            except ValidationError as e:
+                # Captura a exceção e adiciona a mensagem ao contexto do formulário
+                messages.error(request, str(e))
+
+        else:
+            messages.error(request, 'As senhas não coincidem!')
+
+    return render(request, 'cadastro_motoristas.html', context=request.GET.dict())
 
 
 def cadastro_passageiro(request):
-    password = request.POST.get('senha')
-    confirmar_senha = request.POST.get('confirmar_senha')
-    if request.method == 'POST' and password == confirmar_senha:
+    if request.method == 'POST':
         username = request.POST.get('username')
-        nome_completo = request.POST.get('nome_completo')
-        nome_preferencia = request.POST.get('nome_preferencia')
-        cpf = request.POST.get('cpf')
-        telefone = request.POST.get('telefone')
         email = request.POST.get('email')
-        cep = request.POST.get('cep')
-        logradouro = request.POST.get('logradouro')
-        numero_residencia = request.POST.get('numero_residencia')
-        bairro = request.POST.get('bairro')
-        cidade = request.POST.get('cidade')
-        estado = request.POST.get('estado')
+        cpf = request.POST.get('cpf')
+
+        # Verificar se o nome de usuário já existe
+        if Custom.objects.filter(username=username).exists():
+            messages.error(request, 'Nome de usuário já existe!')
+            request.session['form_data'] = request.POST.dict()
+            return redirect('/cadastro/passageiro', context={'form_data': request.session['form_data']})
+
+        # Verificar se o e-mail já existe
+        if Custom.objects.filter(email=email).exists():
+            messages.error(request, 'E-mail já cadastrado!')
+            request.session['form_data'] = request.POST.dict()
+            return redirect('/cadastro/passageiro', context={'form_data': request.session['form_data']})
+
+        # Verificar se o CPF já existe
+        if Passageiro.objects.filter(cpf=cpf).exists():
+            messages.error(request, 'CPF já cadastrado!')
+            request.session['form_data'] = request.POST.dict()
+            return redirect('/cadastro/passageiro', context={'form_data': request.session['form_data']})
+
         password = request.POST.get('senha')
-        novo_usuario = Custom.objects.create_user(
-            username=username,
-            email=email,
-            password=password,
-            is_passageiro=True)
-        novo_passageiro = Passageiro(
-            user=novo_usuario,
-            username=username,
-            email=email,
-            password=make_password(password),
-            nome_completo=nome_completo,
-            nome_preferencia=nome_preferencia,
-            cpf=cpf,
-            telefone=telefone,
-            cep=cep,
-            logradouro=logradouro,
-            numero_residencia=numero_residencia,
-            bairro=bairro,
-            cidade=cidade,
-            estado=estado)
-        novo_passageiro.save()
-        assign_role(novo_passageiro, 'passageiro')
-        messages.success(request, 'Cadastro realizado com sucesso!')
-        return redirect(login_passageiro)
-    else:
-        return render(request, 'cadastro_usuarios.html')
+        confirmar_senha = request.POST.get('confirmar_senha')
+
+        if password == confirmar_senha:
+            try:
+                # Tenta criar um novo usuário
+                novo_usuario = Custom.objects.create_user(
+                    username=username,
+                    email=email,
+                    password=password,
+                    is_passageiro=True
+                )
+
+                # Se o usuário foi criado com sucesso, continue com o cadastro do passageiro
+                novo_passageiro = Passageiro(
+                    user=novo_usuario,
+                    username=username,
+                    email=email,
+                    password=make_password(password),
+                    nome_completo=request.POST.get('nome_completo'),
+                    nome_preferencia=request.POST.get('nome_preferencia'),
+                    cpf=cpf,
+                    telefone=request.POST.get('telefone'),
+                    cep=request.POST.get('cep'),
+                    logradouro=request.POST.get('logradouro'),
+                    numero_residencia=request.POST.get('numero_residencia'),
+                    bairro=request.POST.get('bairro'),
+                    cidade=request.POST.get('cidade'),
+                    estado=request.POST.get('estado')
+                )
+                novo_passageiro.save()
+                assign_role(novo_passageiro, 'passageiro')
+                messages.success(request, 'Cadastro realizado com sucesso!')
+                return redirect(login_passageiro)
+
+            except ValidationError as e:
+                # Captura a exceção e adiciona a mensagem ao contexto do formulário
+                messages.error(request, str(e))
+
+        else:
+            messages.error(request, 'As senhas não coincidem!')
+
+    return render(request, 'cadastro_usuarios.html', context=request.GET.dict())
 
 
 def login_motorista(request):
@@ -454,3 +496,10 @@ def pagina_motorista(request):
 def pagina_passageiro(request):
     exibir_foto = True
     return render(request, 'pagina_passageiro.html', {'exibir_foto': exibir_foto})
+
+
+def verificar_cpf_Passageiro(request):
+    cpf = request.GET.get('cpf', None)
+    data = {'cpf_existe': Passageiro.objects.filter(cpf=cpf).exists()}
+
+    return JsonResponse(data)
