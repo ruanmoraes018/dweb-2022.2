@@ -418,6 +418,7 @@ def resultados0(request):
         'lng_origem': lng_origem,
         'lat_destino': lat_destino,
         'lng_destino': lng_destino, }
+    messages.warning(request, 'Para reservar uma viagem, é necessário entrar ou se cadastrar!')
     return render(request, 'resultados0.html', context)
 
 
